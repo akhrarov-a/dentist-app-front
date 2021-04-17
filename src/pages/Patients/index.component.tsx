@@ -1,5 +1,5 @@
-import React from "react";
-import usePatientsPage from "./props";
+import React from 'react';
+import usePatientsPage from './props';
 
 /**
  * Patients Page

@@ -2,7 +2,7 @@
  * App Props
  */
 const useApp = () => {
-  return { message: "Asadbek" };
+  return { message: 'Asadbek' };
 };
 
 export default useApp;

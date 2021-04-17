@@ -1,6 +1,6 @@
-import React from "react";
-import "./style.scss";
-import useApp from "./props";
+import React from 'react';
+import './style.scss';
+import useApp from './props';
 
 /**
  * App
