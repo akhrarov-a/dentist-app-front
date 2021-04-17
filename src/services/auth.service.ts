@@ -9,14 +9,18 @@ class AuthService {
    * Api
    */
   private api = axios.create({
-    baseURL: ''
+    baseURL: 'http://localhost:5000/auth'
   });
 
   /**
    * Log in
    */
-  public logIn = (data: LogIn) =>
-    this.api({ data, method: 'POST', url: '/sign-in' });
+  public logIn = ({ username, password }: LogIn) =>
+    this.api({
+      data: { login: username, password },
+      method: 'POST',
+      url: '/signin'
+    });
 }
 
 export default AuthService;
