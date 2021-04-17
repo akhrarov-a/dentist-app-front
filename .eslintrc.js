@@ -1,6 +1,11 @@
 module.exports = {
   parser: '@typescript-eslint/parser',
-  plugins: ['react', '@typescript-eslint', 'prettier'],
+  plugins: [
+    'react',
+    '@typescript-eslint',
+    'prettier',
+    'sort-imports-es6-autofix'
+  ],
   extends: ['eslint-config-prettier', 'plugin:prettier/recommended'],
   parserOptions: {
     ecmaVersion: 2018,
@@ -55,6 +60,14 @@ module.exports = {
           'protected-instance-method',
           'public-instance-method'
         ]
+      }
+    ],
+    'sort-imports-es6-autofix/sort-imports-es6': [
+      2,
+      {
+        ignoreCase: false,
+        ignoreMemberSort: false,
+        memberSyntaxSortOrder: ['none', 'all', 'multiple', 'single']
       }
     ]
   },
