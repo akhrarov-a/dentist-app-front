@@ -1,15 +1,15 @@
 import React from 'react';
-import './style.scss';
+import styles from './style.module.scss';
 import useApp from './props';
 
 /**
  * App
  */
 const App = () => {
-  const { message } = useApp();
+  const {} = useApp();
 
   return (
-    <div>
+    <div className={styles.container}>
       <p>Dentist App Front</p>
     </div>
   );

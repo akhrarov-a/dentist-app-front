@@ -5,7 +5,7 @@ import usePatientsPage from './props';
  * Patients Page
  */
 const PatientsPage = () => {
-  const { message } = usePatientsPage();
+  const {} = usePatientsPage();
 
   return (
     <div>
