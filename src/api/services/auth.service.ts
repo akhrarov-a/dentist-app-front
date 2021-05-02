@@ -1,20 +1,11 @@
-import { AxiosRequestConfig } from 'axios';
 import { LogIn } from '../models/log-in/log-in';
-import { base_url } from './';
+import { apiBaseUrl } from '../../utils/constants';
+import axios from 'axios';
 
 /**
  * Authentication service
  */
 class AuthService {
-  /**
-   * Get axios
-   */
-  public constructor(
-    private create: (
-      config: AxiosRequestConfig
-    ) => (config: AxiosRequestConfig) => any
-  ) {}
-
   /**
    * Token
    */
@@ -23,9 +14,8 @@ class AuthService {
   /**
    * Api
    */
-  public api = this.create({
-    withCredentials: true,
-    baseURL: base_url,
+  public api = axios.create({
+    baseURL: apiBaseUrl,
     headers: {
       Authorization: this.token
     }
