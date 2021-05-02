@@ -1,4 +1,4 @@
-import AuthService from '../../services/auth.service';
+import AuthService from '../../api/services/auth.service';
 
 export const getContext = () => ({
   auth: new AuthService()
