@@ -1,9 +1,9 @@
 /**
  * Api base url
  */
-export const apiBaseUrl = '';
+export const apiBaseUrl = 'http://localhost:5000';
 
 /**
- * Base url
+ * Front base url
  */
-export const baseUrl = '';
+export const frontBaseUrl = 'http://localhost:3000';
