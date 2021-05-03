@@ -18,7 +18,7 @@ class AuthService {
    */
   public getHeaders = () => ({
     headers: {
-      Authorization: localStorage.getItem('idToken')
+      Authorization: `Bearer ${localStorage.getItem('idToken')}`
     }
   });
 
