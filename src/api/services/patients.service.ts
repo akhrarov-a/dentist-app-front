@@ -17,9 +17,29 @@ class PatientsService {
    */
   public getHeaders = () => ({
     headers: {
-      Authorization: localStorage.getItem('idToken')
+      Authorization: `Bearer ${localStorage.getItem('idToken')}`
     }
   });
+
+  /**
+   * Get patients
+   */
+  public getPatients = ({
+    selectedPage,
+    search,
+    perPage
+  }: {
+    selectedPage: number;
+    search: string;
+    perPage: number;
+  }) =>
+    this.api({
+      url: `?page=${selectedPage}&perPage=${perPage}${
+        search ? `&search=${search}` : ''
+      }`,
+      method: 'GET',
+      ...this.getHeaders()
+    });
 }
 
 export default PatientsService;
