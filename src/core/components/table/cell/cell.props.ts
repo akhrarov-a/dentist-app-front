@@ -1,7 +1,7 @@
 import { TdHTMLAttributes } from 'react';
 
 /**
- * Props
+ * Cell Props
  */
 export type CellProps = TdHTMLAttributes<any> & {
   /**

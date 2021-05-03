@@ -14,7 +14,7 @@ const Cell: React.FC<CellProps> = ({
   atEnd,
   atCenter,
   ...props
-}) => {
+}): JSX.Element => {
   const isHead = useContext(HeadContext);
 
   return React.createElement(isHead ? 'th' : 'td', {

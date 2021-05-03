@@ -2,7 +2,6 @@ import { Payload, Saga } from 'redux-chill';
 import { StoreContext } from '../../store/context';
 import { call, put } from 'redux-saga/effects';
 import { getUser, logIn, startUp } from './actions';
-import { navigate } from '../router/actions';
 import moment from 'moment';
 
 /**
@@ -24,7 +23,6 @@ class AuthSaga {
 
     yield put(startUp.success());
     yield put(getUser());
-    yield put(navigate('/dashboard'));
   }
 
   /**
@@ -69,7 +67,6 @@ class AuthSaga {
 
       yield put(logIn.success());
       yield put(getUser());
-      yield put(navigate('/dashboard'));
     } catch (err) {
       yield put(logIn.fail('Invalid Credentials'));
     }

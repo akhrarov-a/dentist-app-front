@@ -1,5 +1,5 @@
 /**
- * Props
+ * Body Props
  */
 export type BodyProps = {
   /**

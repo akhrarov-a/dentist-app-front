@@ -1,7 +1,7 @@
 import { Payload, Saga } from 'redux-chill';
 import { StoreContext } from '../../store/context';
 import { call, put } from 'redux-saga/effects';
-import { getPatients } from './actions';
+import { getPatientById, getPatients } from './actions';
 
 /**
  * Patients Saga
@@ -23,6 +23,25 @@ class PatientsSaga {
       });
 
       yield put(getPatients.success(data.patients, data.total));
+    } catch (err) {
+      console.log(err.message);
+    }
+  }
+
+  /**
+   * Get patient by id
+   */
+  @Saga(getPatientById)
+  public *getPatient(
+    { id }: Payload<typeof getPatientById>,
+    { patients }: StoreContext
+  ) {
+    try {
+      const {
+        data: { patient }
+      } = yield call(patients.getPatientById, id);
+
+      yield put(getPatientById.success(patient));
     } catch (err) {
       console.log(err.message);
     }

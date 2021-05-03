@@ -1,10 +1,13 @@
 // Color Variables
 // common
 $white: #fff;
+$white-hover: darken($white, 20%);
+$black-hover: #777;
 
 // light theme colors
 $light-theme-light-grey: #F9FAF9;
 $light-theme-dark-blue: #293D62;
+$light-theme-dark-blue-hover: lighten($light-theme-dark-blue, 30%);
 
 //dark theme colors
 $dark-theme-grey: #F9FAF9;

@@ -1,7 +1,7 @@
 import { ReactChild } from 'react';
 
 /**
- * Props
+ * Table Props
  */
 type TableProps = {
   /**

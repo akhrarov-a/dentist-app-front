@@ -1,5 +1,5 @@
 /**
- * Props
+ * Pagination Props
  */
 type PaginationProps = {
   /**

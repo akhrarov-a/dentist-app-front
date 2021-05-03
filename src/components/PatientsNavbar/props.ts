@@ -1,5 +1,5 @@
 /**
- * Patients navbar props
+ * Patients Navbar props
  */
 export type PatientsNavbarProps = {
   query: string;

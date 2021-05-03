@@ -4,14 +4,14 @@ import classNames from 'classnames';
 import styles from './row.module.scss';
 
 /**
- * <Row />
+ * Renders Row
  */
 const Row: React.FC<RowProps> = ({
   children,
   className,
   elementRef,
   ...props
-}) => (
+}): JSX.Element => (
   <tr
     className={classNames(className, styles.row, {
       [styles.clickable]: props.onClick

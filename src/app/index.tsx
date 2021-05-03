@@ -1,14 +1,14 @@
 import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
 import DashboardPage from '../pages/Dashboard';
 import Layout from '../components/Layout';
-import PatientsPage from '../pages/Patients';
+import Patients from '../pages/Patients';
 import React from 'react';
 import SignInPage from '../pages/SignIn';
 import styles from './style.module.scss';
 import useApp from './props';
 
 /**
- * App
+ * Renders App
  */
 const App: React.FC = (): JSX.Element => {
   const { isAuthenticated } = useApp();
@@ -20,7 +20,7 @@ const App: React.FC = (): JSX.Element => {
           <Layout>
             <Switch>
               <Route path={'/dashboard'} component={DashboardPage} />
-              <Route path={'/patients'} component={PatientsPage} />
+              <Route path={'/patients'} component={Patients} />
               <Redirect to={'/dashboard'} />
             </Switch>
           </Layout>

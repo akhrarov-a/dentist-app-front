@@ -1,7 +1,7 @@
 import { HTMLAttributes, Ref } from 'react';
 
 /**
- * Props
+ * Row Props
  */
 export type RowProps = HTMLAttributes<HTMLTableRowElement> & {
   /**

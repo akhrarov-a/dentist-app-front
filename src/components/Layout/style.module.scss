@@ -62,7 +62,7 @@
   }
 
   &:hover {
-    color: darken($white, 20%);
+    color: $white-hover;
 
     .icon {
       color: $light-theme-dark-blue;
@@ -118,13 +118,16 @@
   margin-right: 40px;
 
   .header-title {
+    cursor: pointer;
     margin: 0;
     padding-right: 30px;
-    font-size: 20px;
+    font-size: 24px;
     font-weight: 300;
+    letter-spacing: 1px;
   }
 
   .header-avatar {
+    cursor: pointer;
     background-color: $white;
     width: 40px;
     height: 40px;

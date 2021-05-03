@@ -4,9 +4,9 @@ import React from 'react';
 import styles from './table.module.scss';
 
 /**
- * Renders Grid
+ * Renders Table
  */
-const Table: React.FC<TableProps> = ({ children, onSort }) => (
+const Table: React.FC<TableProps> = ({ children, onSort }): JSX.Element => (
   <TableContext.Provider
     value={{
       onSort: () => {

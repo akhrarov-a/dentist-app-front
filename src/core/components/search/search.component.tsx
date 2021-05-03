@@ -5,14 +5,14 @@ import classNames from 'classnames';
 import styles from './search.module.scss';
 
 /**
- * Renders Select
+ * Renders Search
  */
 const Search: React.FC<SearchProps> = ({
   value,
   onChange,
   className,
   placeholder
-}) => (
+}): JSX.Element => (
   <div className={classNames(styles.search, className)}>
     <input
       type='text'

@@ -9,7 +9,7 @@ import styles from './style.module.scss';
 const PatientsNavbar: React.FC<PatientsNavbarProps> = ({
   query,
   onQueryChange
-}) => (
+}): JSX.Element => (
   <div className={styles.container}>
     <h1 className={styles.title}>Patients</h1>
     <Search

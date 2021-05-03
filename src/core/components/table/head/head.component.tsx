@@ -6,7 +6,7 @@ import styles from './head.module.scss';
 /**
  * Renders Head
  */
-const Head: React.FC<HeadProps> = ({ children }) => (
+const Head: React.FC<HeadProps> = ({ children }): JSX.Element => (
   <thead className={styles.head}>
     <HeadContext.Provider value>{children}</HeadContext.Provider>
   </thead>

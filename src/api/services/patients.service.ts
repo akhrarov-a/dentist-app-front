@@ -40,6 +40,16 @@ class PatientsService {
       method: 'GET',
       ...this.getHeaders()
     });
+
+  /**
+   * Get patient by id
+   */
+  public getPatientById = (id: number) =>
+    this.api({
+      url: `/${id}`,
+      method: 'GET',
+      ...this.getHeaders()
+    });
 }
 
 export default PatientsService;

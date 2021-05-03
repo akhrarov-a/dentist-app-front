@@ -13,7 +13,7 @@ import styles from './style.module.scss';
 import useLayout from './props';
 
 /**
- * Layout
+ * Renders Layout
  */
 const Layout: React.FC = ({ children }): JSX.Element => {
   const {

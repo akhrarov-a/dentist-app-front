@@ -1,5 +1,5 @@
 /**
- * Props
+ * Search Props
  */
 type SearchProps = {
   value: string;

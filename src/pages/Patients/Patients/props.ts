@@ -1,5 +1,5 @@
-import { AppState } from '../../api/models/app-state';
-import { getPatients } from '../../redux/modules/patients/actions';
+import { AppState } from '../../../api/models/app-state';
+import { getPatients } from '../../../redux/modules/patients/actions';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 
@@ -26,7 +26,13 @@ const usePatientsPage = () => {
     dispatch(getPatients(selectedPage, query));
   }, [selectedPage, query]);
 
-  return { patients, query, total, onPageChange, onQueryChange };
+  return {
+    patients,
+    query,
+    total,
+    onPageChange,
+    onQueryChange
+  };
 };
 
 export default usePatientsPage;

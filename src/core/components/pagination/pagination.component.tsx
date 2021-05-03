@@ -4,9 +4,12 @@ import ReactPaginate from 'react-paginate';
 import styles from './pagination.module.scss';
 
 /**
- * Renders Modal
+ * Renders Pagination
  */
-const Pagination: React.FC<PaginationProps> = ({ length, onPageChange }) => (
+const Pagination: React.FC<PaginationProps> = ({
+  length,
+  onPageChange
+}): JSX.Element => (
   <ReactPaginate
     containerClassName={styles.container}
     activeLinkClassName={styles['page--true']}
