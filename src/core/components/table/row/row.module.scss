@@ -1,0 +1,14 @@
+@import '../../../../styles/variables.scss';
+
+.row {
+}
+
+.clickable {
+  cursor: pointer;
+
+  transition: 0.25s;
+
+  &:hover {
+    background: #eee;
+  }
+}

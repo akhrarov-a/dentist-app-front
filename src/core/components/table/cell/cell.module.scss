@@ -1,0 +1,47 @@
+@import '../../../../styles/variables.scss';
+
+.cell {
+  height: 48px;
+  padding-left: 10px;
+  border-bottom: thin solid #eeeeee;
+  font-weight: 400;
+  text-align: left;
+
+  &:not(:last-child) {
+    padding-right: 20px;
+  }
+
+  &:not(:first-child) {
+    padding-left: 20px;
+  }
+}
+
+.cellHead {
+  height: 55px;
+  font-weight: 500;
+}
+
+.cellBold {
+  font-weight: 700;
+  color: #000000;
+}
+
+.cellActive {
+  color: #000000;
+  border-bottom: thin solid #000000;
+}
+
+.cellAtEnd {
+  text-align: right;
+}
+
+.cellAtCenter {
+  text-align: center;
+}
+
+.icon {
+  &-arrow-down {
+    margin-left: 14px;
+    font-size: 8px;
+  }
+}
