@@ -12,7 +12,7 @@ class AuthReducerState {
   /**
    * Object container all user data
    */
-  public user: User | undefined;
+  public user: User | null = null;
 
   /**
    * Log in errors

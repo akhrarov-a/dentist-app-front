@@ -20,3 +20,8 @@ export const logIn = make('[auth] sign in')
   .stage((payload: { username: string; password: string }) => payload)
   .stage('success')
   .stage('fail', (error) => error);
+
+/**
+ * Log out
+ */
+export const logOut = make('[auth] log out');

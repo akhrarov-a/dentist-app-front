@@ -1,5 +1,6 @@
 import {
   AiOutlineClose,
+  AiOutlineLogout,
   GiHamburgerMenu,
   IoPersonOutline,
   MdDashboard,
@@ -7,6 +8,7 @@ import {
 } from 'react-icons/all';
 import { NavLink } from 'react-router-dom';
 import React from 'react';
+import classNames from 'classnames';
 import styles from './style.module.scss';
 import useLayout from './props';
 
@@ -14,7 +16,15 @@ import useLayout from './props';
  * Layout
  */
 const Layout: React.FC = ({ children }): JSX.Element => {
-  const { links, toggleSidebar, width, xPosition, isOpen, name } = useLayout();
+  const {
+    links,
+    toggleSidebar,
+    width,
+    xPosition,
+    isOpen,
+    name,
+    onLogoutClick
+  } = useLayout();
 
   return (
     <div className={styles.layout}>
@@ -40,6 +50,13 @@ const Layout: React.FC = ({ children }): JSX.Element => {
               <p>{name}</p>
             </NavLink>
           ))}
+        </div>
+        <div
+          className={classNames(styles.link, styles.logOut)}
+          onClick={onLogoutClick}
+        >
+          <AiOutlineLogout className={styles.icon} />
+          <p>Log out</p>
         </div>
         {!isOpen ? (
           <GiHamburgerMenu onClick={toggleSidebar} className={styles.toggle} />

@@ -1,13 +1,16 @@
 import { AppState } from '../../api/models/app-state';
+import { logOut } from '../../redux/modules/auth/actions';
 import { useCallback, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigationLinks } from '../../hooks/useNavigationLinks';
-import { useSelector } from 'react-redux';
 
 /**
  * Layout Props
  */
 const useLayout = () => {
   const width = 280;
+
+  const dispatch = useDispatch();
 
   const { user } = useSelector((state: AppState) => state.auth);
 
@@ -25,13 +28,18 @@ const useLayout = () => {
     }
   }, [xPosition]);
 
+  const onLogoutClick = useCallback(() => {
+    dispatch(logOut());
+  }, []);
+
   return {
     links,
     width,
     isOpen,
     toggleSidebar,
     xPosition,
-    name: user?.name
+    name: user?.name,
+    onLogoutClick
   };
 };
 
