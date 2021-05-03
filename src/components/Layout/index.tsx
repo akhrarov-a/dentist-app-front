@@ -39,7 +39,12 @@ const Layout: React.FC = ({ children }): JSX.Element => {
         <div className={styles.logo}>Logo</div>
         <div className={styles.links}>
           {links?.map(({ name, to, iconKey }, index) => (
-            <NavLink key={index} className={styles.link} to={to}>
+            <NavLink
+              key={index}
+              className={styles.link}
+              to={to}
+              onClick={toggleSidebar}
+            >
               {iconKey === 'MdDashboard' && (
                 <MdDashboard className={styles.icon} />
               )}
