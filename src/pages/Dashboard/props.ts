@@ -1,8 +1,6 @@
 /**
  * Dashboard Page Props
  */
-const useDashboardPage = () => {
-  return { message: 'Asadbek' };
-};
+const useDashboardPage = () => ({ message: 'Asadbek' });
 
 export default useDashboardPage;

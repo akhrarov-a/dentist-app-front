@@ -6,7 +6,7 @@ import useSignInPage from './props';
  * Sign In Page
  */
 const SignInPage: React.FC = (): JSX.Element => {
-  const { formik } = useSignInPage();
+  const { formik, error } = useSignInPage();
 
   return (
     <div className={styles.container}>
@@ -36,6 +36,7 @@ const SignInPage: React.FC = (): JSX.Element => {
               value={formik.values.password}
             />
           </div>
+          {error && <p>{error}</p>}
           <div className={styles['submit-container']}>
             <button type={'submit'} className={styles['submit-button']}>
               Sign In

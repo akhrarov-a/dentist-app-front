@@ -1,6 +1,7 @@
+import { AppState } from '../../api/models/app-state';
 import { logIn } from '../../redux/modules/auth/actions';
 import { loginSchema } from '../../validations/log-in-schema/login.schema';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useFormik } from 'formik';
 
 /**
@@ -8,6 +9,8 @@ import { useFormik } from 'formik';
  */
 const useSignInPage = () => {
   const dispatch = useDispatch();
+
+  const { error } = useSelector((state: AppState) => state.auth);
 
   const formik = useFormik({
     initialValues: {
@@ -20,7 +23,7 @@ const useSignInPage = () => {
     validationSchema: loginSchema
   });
 
-  return { formik };
+  return { formik, error };
 };
 
 export default useSignInPage;

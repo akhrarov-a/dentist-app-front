@@ -1,11 +1,15 @@
+import { AppState } from '../../api/models/app-state';
 import { useCallback, useState } from 'react';
 import { useNavigationLinks } from '../../hooks/useNavigationLinks';
+import { useSelector } from 'react-redux';
 
 /**
  * Layout Props
  */
 const useLayout = () => {
   const width = 280;
+
+  const { user } = useSelector((state: AppState) => state.auth);
 
   const links = useNavigationLinks();
   const [isOpen, setIsOpen] = useState(false);
@@ -26,7 +30,8 @@ const useLayout = () => {
     width,
     isOpen,
     toggleSidebar,
-    xPosition
+    xPosition,
+    name: user?.name
   };
 };
 

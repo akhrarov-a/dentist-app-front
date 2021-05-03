@@ -7,19 +7,30 @@ import axios from 'axios';
  */
 class AuthService {
   /**
-   * Token
-   */
-  private token: string | null = localStorage.getItem('token');
-
-  /**
    * Api
    */
   public api = axios.create({
-    baseURL: apiBaseUrl,
+    baseURL: `${apiBaseUrl}/auth`
+  });
+
+  /**
+   * Get headers
+   */
+  public getHeaders = () => ({
     headers: {
-      Authorization: this.token
+      Authorization: localStorage.getItem('idToken')
     }
   });
+
+  /**
+   * Get user
+   */
+  public getUser = () =>
+    this.api({
+      method: 'GET',
+      url: '/get-user',
+      ...this.getHeaders()
+    });
 
   /**
    * Log in
@@ -28,7 +39,8 @@ class AuthService {
     this.api({
       data: { login: username, password },
       method: 'POST',
-      url: '/signin'
+      url: '/signin',
+      ...this.getHeaders()
     });
 }
 

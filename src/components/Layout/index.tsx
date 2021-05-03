@@ -14,7 +14,7 @@ import useLayout from './props';
  * Layout
  */
 const Layout: React.FC = ({ children }): JSX.Element => {
-  const { links, toggleSidebar, width, xPosition, isOpen } = useLayout();
+  const { links, toggleSidebar, width, xPosition, isOpen, name } = useLayout();
 
   return (
     <div className={styles.layout}>
@@ -50,7 +50,7 @@ const Layout: React.FC = ({ children }): JSX.Element => {
       <div className={styles['children-container']}>
         <div className={styles['header-container']}>
           <div className={styles.header}>
-            <p className={styles['header-title']}>Asadbek Akhrarov</p>
+            <p className={styles['header-title']}>{name}</p>
             <img
               className={styles['header-avatar']}
               src={'/logo192.png'}

@@ -1,12 +1,48 @@
 import { Payload, Saga } from 'redux-chill';
 import { StoreContext } from '../../store/context';
-import { call } from 'redux-saga/effects';
-import { logIn } from './actions';
+import { call, put } from 'redux-saga/effects';
+import { getUser, logIn, startUp } from './actions';
+import moment from 'moment';
 
 /**
  * Authentication Saga
  */
 class AuthSaga {
+  /**
+   * Start up
+   */
+  @Saga(startUp)
+  public *start() {
+    const expireDate: any = localStorage.getItem('expireDate');
+
+    if (!expireDate) return;
+
+    const isAfter = moment().isAfter(expireDate);
+
+    if (isAfter) return;
+
+    yield put(startUp.success());
+    yield put(getUser());
+  }
+
+  /**
+   * Get user
+   */
+  @Saga(getUser)
+  public *getUser(_: Payload<typeof getUser>, { auth }: StoreContext) {
+    try {
+      const {
+        data: { user }
+      } = yield call(auth.getUser);
+
+      yield put(getUser.success(user));
+    } catch (err) {
+      console.log(err.message);
+    } finally {
+      yield put(getUser.finish());
+    }
+  }
+
   /**
    * Log in
    */
@@ -17,12 +53,22 @@ class AuthSaga {
   ) {
     try {
       const {
-        data: { user }
+        data: { accessToken, expiresIn }
       } = yield call(auth.logIn, { username, password });
 
-      console.log('Asadbek');
+      const expireDate = moment().add(expiresIn, 'days').format();
+
+      yield call([localStorage, localStorage.setItem], 'idToken', accessToken);
+      yield call(
+        [localStorage, localStorage.setItem],
+        'expireDate',
+        expireDate
+      );
+
+      yield put(logIn.success());
+      yield put(getUser());
     } catch (err) {
-      console.log(err.message);
+      yield put(logIn.fail('Invalid Credentials'));
     }
   }
 }

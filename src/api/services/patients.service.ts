@@ -6,17 +6,18 @@ import axios from 'axios';
  */
 class PatientsService {
   /**
-   * Token
-   */
-  private token: string | null = localStorage.getItem('token');
-
-  /**
    * Api
    */
   public api = axios.create({
-    baseURL: apiBaseUrl,
+    baseURL: `${apiBaseUrl}/patients`
+  });
+
+  /**
+   * Get headers
+   */
+  public getHeaders = () => ({
     headers: {
-      Authorization: this.token
+      Authorization: localStorage.getItem('idToken')
     }
   });
 }
