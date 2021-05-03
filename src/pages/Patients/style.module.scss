@@ -1,0 +1,27 @@
+@import "../../styles/variables.scss";
+
+.container {
+  width: 100%;
+}
+
+.patients-container {
+  background-color: $white;
+}
+
+.pl {
+  padding-left: 30px;
+}
+
+.iconInfo {
+  cursor: pointer;
+  font-size: 18px;
+  color: $light-theme-dark-blue;
+}
+
+.row {
+  width: 100%;
+}
+
+.cell {
+  border: 1px solid $light-theme-light-grey;
+}
