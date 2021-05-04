@@ -113,9 +113,16 @@ const PatientsPage: React.FC = (): JSX.Element => {
             )}
           </Body>
         </Table>
-        {patients?.length === 0 ? (
+        {!query && patients?.length === 0 ? (
           <div className={styles['no-patients']}>
             <p>You don't have patients yet</p>
+          </div>
+        ) : (
+          ''
+        )}
+        {query && patients?.length === 0 ? (
+          <div className={styles['no-patients']}>
+            <p>No matches</p>
           </div>
         ) : (
           ''
