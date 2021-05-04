@@ -17,17 +17,21 @@ const SinglePatientPage: React.FC = (): JSX.Element => {
     path,
     url,
     xPosition,
-    onLinkClick
+    onLinkClick,
+    toggleEditModal
   } = useSinglePatientPage();
 
   return (
     <div className={styles.container}>
-      {isEditing && <PatientEditModal />}
+      {isEditing && <PatientEditModal onClose={toggleEditModal} />}
       <div className={styles.navbar}>
         <NavLink className={styles.link} to={'/patients'}>
           <IoArrowBack className={styles.icon} />
           <p>Back</p>
         </NavLink>
+        <div className={styles['edit-container']}>
+          <p onClick={toggleEditModal}>Edit</p>
+        </div>
       </div>
       <div className={styles.content}>
         <div className={styles['user-container']}>

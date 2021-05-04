@@ -28,11 +28,23 @@ const useSinglePatientPage = () => {
     }
   };
 
+  const toggleEditModal = () => {
+    setIsEditing(!isEditing);
+  };
+
   useEffect(() => {
     dispatch(getPatientById(+id));
   }, [id]);
 
-  return { selectedPatient, isEditing, path, url, xPosition, onLinkClick };
+  return {
+    selectedPatient,
+    isEditing,
+    path,
+    url,
+    xPosition,
+    onLinkClick,
+    toggleEditModal
+  };
 };
 
 export default useSinglePatientPage;
