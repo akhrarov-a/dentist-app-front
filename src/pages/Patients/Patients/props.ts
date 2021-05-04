@@ -16,6 +16,7 @@ const usePatientsPage = () => {
   const { patients, total } = useSelector((state: AppState) => state.patients);
 
   const [isAdding, setIsAdding] = useState(false);
+  const [isDeleting, setIsDeleting] = useState(false);
   const [selectedPage, setSelectedPage] = useState(1);
   const [query, setQuery] = useState('');
   const [selectedPatients, setSelectedPatients] = useState<number[]>([]);
@@ -32,6 +33,10 @@ const usePatientsPage = () => {
     dispatch(setErrors.add());
   }, [isAdding]);
 
+  const toggleDeletingModal = useCallback(() => {
+    setIsDeleting(!isDeleting);
+  }, [isDeleting]);
+
   const onPageChange = useCallback(({ selected }: { selected: number }) => {
     setSelectedPage(selected + 1);
   }, []);
@@ -45,6 +50,7 @@ const usePatientsPage = () => {
       );
     });
 
+    setIsDeleting(false);
     setSelectedPage(1);
     setSelectedPatients([]);
   }, [selectedPatients]);
@@ -85,10 +91,12 @@ const usePatientsPage = () => {
     query,
     total,
     isAdding,
+    isDeleting,
     onPageChange,
     onQueryChange,
     onDeleteClick,
     toggleEditingModal,
+    toggleDeletingModal,
     selectedPatients,
     onPatientCheckboxClick,
     onAllCheckboxClick,

@@ -1,4 +1,13 @@
-import { Body, Cell, Head, Pagination, Row, Table } from '../../../core';
+import {
+  Body,
+  Button,
+  Cell,
+  Head,
+  Modal,
+  Pagination,
+  Row,
+  Table
+} from '../../../core';
 import { BsInfoCircle } from 'react-icons/all';
 import { NavLink } from 'react-router-dom';
 import PatientModal from '../../../components/PatientModal';
@@ -13,12 +22,14 @@ import usePatientsPage from './props';
 const PatientsPage: React.FC = (): JSX.Element => {
   const {
     isAdding,
+    isDeleting,
     patients,
     query,
     total,
     onPageChange,
     onQueryChange,
     toggleEditingModal,
+    toggleDeletingModal,
     onDeleteClick,
     selectedPatients,
     onPatientCheckboxClick,
@@ -29,11 +40,32 @@ const PatientsPage: React.FC = (): JSX.Element => {
   return (
     <div className={styles.container}>
       {isAdding && <PatientModal onClose={toggleEditingModal} />}
+      {isDeleting && (
+        <Modal className={styles['delete-modal']}>
+          <h1>
+            Are you sure <br />
+            to delete this patient{selectedPatients?.length === 1 ? '' : 's'} ?
+          </h1>
+          <h3>You won't able to recover</h3>
+          <div className={styles.buttons}>
+            <Button
+              theme={'teritary'}
+              size={'md'}
+              onClick={toggleDeletingModal}
+            >
+              Cancel
+            </Button>
+            <Button theme={'primary'} size={'md'} onClick={onDeleteClick}>
+              Delete
+            </Button>
+          </div>
+        </Modal>
+      )}
       <PatientsNavbar
         query={query}
         onQueryChange={onQueryChange}
         onAddClick={toggleEditingModal}
-        onDeleteClick={onDeleteClick}
+        onDeleteClick={toggleDeletingModal}
         deleteVisible={!!selectedPatients?.length}
       />
       <div className={styles['patients-container']}>

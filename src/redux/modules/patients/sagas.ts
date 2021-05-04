@@ -9,7 +9,7 @@ import {
 } from './actions';
 import { call, put, takeEvery } from 'redux-saga/effects';
 
-const perPage = 2;
+const perPage = 10;
 
 /**
  * Patients Saga
