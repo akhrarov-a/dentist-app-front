@@ -1,8 +1,8 @@
 import { AppState } from '../../../api/models/app-state';
 import { deletePatientById } from '../../../redux/modules/patients/actions';
+import { useCallback, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useRouteMatch } from 'react-router';
-import { useState } from 'react';
 
 /**
  * Single Patient Page Props
@@ -18,23 +18,23 @@ const useSinglePatientPage = () => {
   const [isDeleting, setIsDeleting] = useState(false);
   const [xPosition, setXPosition] = useState(0);
 
-  const onLinkClick = (key: string) => {
+  const onLinkClick = useCallback((key: string) => {
     if (key === 'profile') {
       setXPosition(0);
     } else if (key === 'appointments') {
       setXPosition(118);
     }
-  };
+  }, []);
 
-  const toggleEditModal = () => {
+  const toggleEditModal = useCallback(() => {
     setIsEditing(!isEditing);
-  };
+  }, [isEditing]);
 
-  const toggleDeleteModal = () => {
+  const toggleDeleteModal = useCallback(() => {
     setIsDeleting(!isDeleting);
-  };
+  }, [isDeleting]);
 
-  const onSubmitDeleteClick = () => {
+  const onSubmitDeleteClick = useCallback(() => {
     toggleDeleteModal();
 
     if (!selectedPatient?.id) return;
@@ -42,7 +42,7 @@ const useSinglePatientPage = () => {
     dispatch(
       deletePatientById(selectedPatient.id, () => history.push('/patients'))
     );
-  };
+  }, [selectedPatient, history]);
 
   return {
     selectedPatient,

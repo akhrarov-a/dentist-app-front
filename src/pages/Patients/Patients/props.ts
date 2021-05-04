@@ -1,7 +1,7 @@
 import { AppState } from '../../../api/models/app-state';
 import { getPatients } from '../../../redux/modules/patients/actions';
+import { useCallback, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useEffect, useState } from 'react';
 
 /**
  * Patients Page Props
@@ -14,17 +14,17 @@ const usePatientsPage = () => {
   const [selectedPage, setSelectedPage] = useState(1);
   const [query, setQuery] = useState('');
 
-  const onQueryChange = (value: string) => {
+  const onQueryChange = useCallback((value: string) => {
     setQuery(value);
 
     if (value) return;
 
     setSelectedPage(1);
-  };
+  }, []);
 
-  const onPageChange = ({ selected }: { selected: number }) => {
+  const onPageChange = useCallback(({ selected }: { selected: number }) => {
     setSelectedPage(selected + 1);
-  };
+  }, []);
 
   useEffect(() => {
     dispatch(getPatients(selectedPage, query));
