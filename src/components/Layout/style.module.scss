@@ -44,14 +44,14 @@
   margin-bottom: 20px;
   color: $white;
   text-decoration: none;
-  transition: color 0.2s;
+  transition: color $transition-fast;
 
 
   .icon {
     font-size: 28px;
     padding: 5px;
     border-radius: 5px;
-    transition: color 0.2s, background-color 0.2s;
+    transition: color $transition-fast, background-color $transition-fast;
   }
 
   p {
@@ -91,7 +91,7 @@
   color: $white;
   font-size: 30px;
   border-radius: 5px;
-  transition: background-color 0.4s, color 0.3s;
+  transition: background-color $transition-medium, color $transition-medium;
 
   &:hover {
     background-color: $white;

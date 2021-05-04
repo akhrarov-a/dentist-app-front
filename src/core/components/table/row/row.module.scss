@@ -6,7 +6,7 @@
 .clickable {
   cursor: pointer;
 
-  transition: 0.25s;
+  transition: $transition-fast;
 
   &:hover {
     background: #eee;

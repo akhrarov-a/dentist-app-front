@@ -22,8 +22,8 @@ const useSinglePatientPage = () => {
   const { selectedPatient } = useSelector((state: AppState) => state.patients);
 
   const [isEditing, setIsEditing] = useState(false);
+  const [isDeleting, setIsDeleting] = useState(false);
   const [xPosition, setXPosition] = useState(0);
-  const [submitDelete, setSubmitDelete] = useState(false);
 
   const onLinkClick = (key: string) => {
     if (key === 'profile') {
@@ -37,9 +37,13 @@ const useSinglePatientPage = () => {
     setIsEditing(!isEditing);
   };
 
-  const onDeleteClick = () => {};
+  const toggleDeleteModal = () => {
+    setIsDeleting(!isDeleting);
+  };
 
   const onSubmitDeleteClick = () => {
+    toggleDeleteModal();
+
     if (!selectedPatient?.id) return;
 
     dispatch(
@@ -54,12 +58,14 @@ const useSinglePatientPage = () => {
   return {
     selectedPatient,
     isEditing,
+    isDeleting,
     path,
     url,
     xPosition,
     onLinkClick,
     toggleEditModal,
-    onDeleteClick
+    toggleDeleteModal,
+    onSubmitDeleteClick
   };
 };
 
