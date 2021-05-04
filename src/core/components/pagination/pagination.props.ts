@@ -11,6 +11,11 @@ type PaginationProps = {
    * On page number click
    */
   onPageChange: (page: { selected: number }) => void;
+
+  /**
+   * Selected page
+   */
+  selectedPage: number;
 };
 
 export type { PaginationProps };

@@ -7,9 +7,9 @@ import {
   getPatients,
   updatePatientById
 } from './actions';
-import { call, put } from 'redux-saga/effects';
+import { call, put, takeEvery } from 'redux-saga/effects';
 
-const perPage = 10;
+const perPage = 2;
 
 /**
  * Patients Saga
@@ -58,17 +58,15 @@ class PatientsSaga {
   /**
    * Delete patient by id
    */
-  @Saga(deletePatientById)
+  @Saga(takeEvery, deletePatientById)
   public *deletePatient(
     { id, callback }: Payload<typeof deletePatientById>,
     { patients }: StoreContext
   ) {
     try {
-      const {
-        data: { patient }
-      } = yield call(patients.deletePatientById, id);
+      yield call(patients.deletePatientById, id);
 
-      yield put(deletePatientById.success(patient));
+      yield put(deletePatientById.success());
       yield call(callback);
     } catch (err) {
       console.log(err.message);
@@ -107,6 +105,7 @@ class PatientsSaga {
       yield call(patients.addPatient, data);
 
       yield put(addPatient.success());
+      yield put(getPatients(1, ''));
       yield call(callback);
     } catch (err) {
       const errorMessage = err.response.data.message;

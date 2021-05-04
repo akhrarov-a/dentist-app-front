@@ -5,7 +5,7 @@ import { make } from 'redux-chill';
  * Get patients
  */
 export const getPatients = make('[patients] get')
-  .stage((selectedPage: number, search) => ({ selectedPage, search }))
+  .stage((selectedPage: number, search: string) => ({ selectedPage, search }))
   .stage('success', (payload: Patient[], total) => ({ payload, total }))
   .stage('finish');
 

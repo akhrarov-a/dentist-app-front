@@ -8,7 +8,8 @@ import styles from './pagination.module.scss';
  */
 const Pagination: React.FC<PaginationProps> = ({
   length,
-  onPageChange
+  onPageChange,
+  selectedPage
 }): JSX.Element => (
   <ReactPaginate
     containerClassName={styles.container}
@@ -24,6 +25,7 @@ const Pagination: React.FC<PaginationProps> = ({
     marginPagesDisplayed={4}
     pageRangeDisplayed={4}
     breakLinkClassName={styles.page}
+    forcePage={selectedPage}
   />
 );
 export { Pagination };

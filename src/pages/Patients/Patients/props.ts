@@ -1,5 +1,6 @@
 import { AppState } from '../../../api/models/app-state';
 import {
+  deletePatientById,
   getPatients,
   setErrors
 } from '../../../redux/modules/patients/actions';
@@ -17,13 +18,10 @@ const usePatientsPage = () => {
   const [isAdding, setIsAdding] = useState(false);
   const [selectedPage, setSelectedPage] = useState(1);
   const [query, setQuery] = useState('');
+  const [selectedPatients, setSelectedPatients] = useState<number[]>([]);
 
   const onQueryChange = useCallback((value: string) => {
     setQuery(value);
-
-    if (value) return;
-
-    setSelectedPage(1);
   }, []);
 
   const toggleEditingModal = useCallback(() => {
@@ -38,7 +36,45 @@ const usePatientsPage = () => {
     setSelectedPage(selected + 1);
   }, []);
 
-  const onDeleteClick = useCallback(() => {}, []);
+  const onDeleteClick = useCallback(() => {
+    selectedPatients.map((value) => {
+      dispatch(
+        deletePatientById(value, () => {
+          dispatch(getPatients(1, ''));
+        })
+      );
+    });
+
+    setSelectedPage(1);
+    setSelectedPatients([]);
+  }, [selectedPatients]);
+
+  const onPatientCheckboxClick = useCallback(
+    (id: number | undefined) => {
+      if (!id) return;
+
+      if (selectedPatients.includes(id)) {
+        setSelectedPatients(selectedPatients.filter((value) => value !== id));
+
+        return;
+      }
+
+      setSelectedPatients([...selectedPatients, id]);
+    },
+    [selectedPatients]
+  );
+
+  const onAllCheckboxClick = useCallback(() => {
+    const data: any = patients?.map(({ id }) => id);
+
+    if (selectedPatients?.length === patients?.length) {
+      setSelectedPatients([]);
+    } else if (!!selectedPatients?.length) {
+      setSelectedPatients(data);
+    } else {
+      setSelectedPatients(data);
+    }
+  }, [selectedPatients]);
 
   useEffect(() => {
     dispatch(getPatients(selectedPage, query));
@@ -52,7 +88,11 @@ const usePatientsPage = () => {
     onPageChange,
     onQueryChange,
     onDeleteClick,
-    toggleEditingModal
+    toggleEditingModal,
+    selectedPatients,
+    onPatientCheckboxClick,
+    onAllCheckboxClick,
+    selectedPage
   };
 };
 

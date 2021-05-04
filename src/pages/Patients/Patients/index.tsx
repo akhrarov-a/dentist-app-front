@@ -19,7 +19,11 @@ const PatientsPage: React.FC = (): JSX.Element => {
     onPageChange,
     onQueryChange,
     toggleEditingModal,
-    onDeleteClick
+    onDeleteClick,
+    selectedPatients,
+    onPatientCheckboxClick,
+    onAllCheckboxClick,
+    selectedPage
   } = usePatientsPage();
 
   return (
@@ -30,11 +34,21 @@ const PatientsPage: React.FC = (): JSX.Element => {
         onQueryChange={onQueryChange}
         onAddClick={toggleEditingModal}
         onDeleteClick={onDeleteClick}
+        deleteVisible={!!selectedPatients?.length}
       />
       <div className={styles['patients-container']}>
         <Table>
           <Head>
             <Row className={styles.row}>
+              {patients?.length ? (
+                <Cell>
+                  <input
+                    type={'checkbox'}
+                    checked={selectedPatients?.length === patients?.length}
+                    onChange={onAllCheckboxClick}
+                  />
+                </Cell>
+              ) : null}
               <Cell className={styles.pl}>Name</Cell>
               <Cell>Email</Cell>
               <Cell>Phone number</Cell>
@@ -46,6 +60,13 @@ const PatientsPage: React.FC = (): JSX.Element => {
             {patients?.map(
               ({ id, name, phoneNumber, email, description }, index) => (
                 <Row key={index} className={styles.row}>
+                  <Cell>
+                    <input
+                      type={'checkbox'}
+                      checked={selectedPatients?.some((value) => value === id)}
+                      onChange={() => onPatientCheckboxClick(id)}
+                    />
+                  </Cell>
                   <Cell className={styles.pl}>{name}</Cell>
                   <Cell>{email}</Cell>
                   <Cell>{phoneNumber}</Cell>
@@ -69,7 +90,11 @@ const PatientsPage: React.FC = (): JSX.Element => {
         )}
       </div>
       {!query && patients?.length !== 0 && (
-        <Pagination length={total} onPageChange={onPageChange} />
+        <Pagination
+          length={total}
+          onPageChange={onPageChange}
+          selectedPage={selectedPage - 1}
+        />
       )}
     </div>
   );
