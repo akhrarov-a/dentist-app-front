@@ -40,7 +40,12 @@ const usePatientModal = ({ onClose }: PatientModalProps) => {
         return;
       }
 
-      dispatch(addPatient(values, () => setSubmitting(true)));
+      dispatch(
+        addPatient(values, () => {
+          setSubmitting(true);
+          onClose();
+        })
+      );
     }
   });
 
