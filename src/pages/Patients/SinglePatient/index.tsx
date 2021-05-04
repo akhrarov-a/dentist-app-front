@@ -1,7 +1,7 @@
 import { AiOutlineDelete, IoArrowBack, RiEditBoxLine } from 'react-icons/all';
 import { Button, Modal } from '../../../core';
 import { NavLink, Redirect, Route, Switch } from 'react-router-dom';
-import PatientEditModal from '../../../components/PatientEditModal';
+import PatientModal from '../../../components/PatientModal';
 import React from 'react';
 import SinglePatientAppointmentsPage from './Appointments';
 import SinglePatientProfilePage from './Profile';
@@ -28,7 +28,7 @@ const SinglePatientPage: React.FC = (): JSX.Element => {
 
   return (
     <div className={styles.container}>
-      {isEditing && <PatientEditModal onClose={toggleEditModal} />}
+      {isEditing && <PatientModal onClose={toggleEditModal} />}
       {isDeleting && (
         <Modal className={styles['delete-modal']}>
           <h1>

@@ -96,7 +96,8 @@ class PatientsService {
         description
       },
       url: '/',
-      method: 'POST'
+      method: 'POST',
+      ...this.getHeaders()
     });
 }
 

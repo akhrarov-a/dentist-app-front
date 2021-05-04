@@ -1,5 +1,8 @@
 import { AppState } from '../../../api/models/app-state';
-import { getPatients } from '../../../redux/modules/patients/actions';
+import {
+  getPatients,
+  setErrors
+} from '../../../redux/modules/patients/actions';
 import { useCallback, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -11,6 +14,7 @@ const usePatientsPage = () => {
 
   const { patients, total } = useSelector((state: AppState) => state.patients);
 
+  const [isAdding, setIsAdding] = useState(false);
   const [selectedPage, setSelectedPage] = useState(1);
   const [query, setQuery] = useState('');
 
@@ -22,9 +26,19 @@ const usePatientsPage = () => {
     setSelectedPage(1);
   }, []);
 
+  const toggleEditingModal = useCallback(() => {
+    setIsAdding(!isAdding);
+
+    if (!isAdding) return;
+
+    dispatch(setErrors.add());
+  }, [isAdding]);
+
   const onPageChange = useCallback(({ selected }: { selected: number }) => {
     setSelectedPage(selected + 1);
   }, []);
+
+  const onDeleteClick = useCallback(() => {}, []);
 
   useEffect(() => {
     dispatch(getPatients(selectedPage, query));
@@ -34,8 +48,11 @@ const usePatientsPage = () => {
     patients,
     query,
     total,
+    isAdding,
     onPageChange,
-    onQueryChange
+    onQueryChange,
+    onDeleteClick,
+    toggleEditingModal
   };
 };
 

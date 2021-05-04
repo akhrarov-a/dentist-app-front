@@ -1,0 +1,17 @@
+@import '../../../styles/variables.scss';
+
+.input {
+  width: 220px;
+  height: 30px;
+  margin: 10px;
+  padding: 5px 10px;
+  outline: none;
+  border: 2px solid $light-grey;
+  border-radius: 4px;
+  transition: border $transition-fast;
+  font-size: 16px;
+
+  &:focus {
+    border: 2px solid $light-theme-dark-blue;
+  }
+}

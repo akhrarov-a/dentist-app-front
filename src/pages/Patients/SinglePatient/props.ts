@@ -1,6 +1,10 @@
 import { AppState } from '../../../api/models/app-state';
-import { deletePatientById } from '../../../redux/modules/patients/actions';
-import { useCallback, useState } from 'react';
+import {
+  deletePatientById,
+  setErrors,
+  singlePatientPageUnmount
+} from '../../../redux/modules/patients/actions';
+import { useCallback, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useRouteMatch } from 'react-router';
 
@@ -28,6 +32,10 @@ const useSinglePatientPage = () => {
 
   const toggleEditModal = useCallback(() => {
     setIsEditing(!isEditing);
+
+    if (!isEditing) return;
+
+    dispatch(setErrors.update());
   }, [isEditing]);
 
   const toggleDeleteModal = useCallback(() => {
@@ -43,6 +51,13 @@ const useSinglePatientPage = () => {
       deletePatientById(selectedPatient.id, () => history.push('/patients'))
     );
   }, [selectedPatient, history]);
+
+  useEffect(
+    () => () => {
+      dispatch(singlePatientPageUnmount());
+    },
+    []
+  );
 
   return {
     selectedPatient,

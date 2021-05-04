@@ -1,19 +1,22 @@
 import { AppState } from '../../api/models/app-state';
 import { Patient } from '../../api/models/patient/patient';
 import { PatientModalProps } from './type';
-import { updatePatientById } from '../../redux/modules/patients/actions';
+import {
+  addPatient,
+  updatePatientById
+} from '../../redux/modules/patients/actions';
 import { useDispatch, useSelector } from 'react-redux';
 import { useFormik } from 'formik';
 
 /**
- * Patient Edit Props
+ * Patient Props
  */
-const usePatientEditModal = ({ onClose }: PatientModalProps) => {
+const usePatientModal = ({ onClose }: PatientModalProps) => {
   const dispatch = useDispatch();
 
   const {
     selectedPatient,
-    errors: { update }
+    errors: { update, add }
   } = useSelector((state: AppState) => state.patients);
 
   const form = useFormik<Patient>({
@@ -26,16 +29,22 @@ const usePatientEditModal = ({ onClose }: PatientModalProps) => {
       id: selectedPatient?.id || undefined
     },
     onSubmit: (values, { setSubmitting }) => {
-      dispatch(
-        updatePatientById(values, () => {
-          setSubmitting(true);
-          onClose();
-        })
-      );
+      if (selectedPatient) {
+        dispatch(
+          updatePatientById(values, () => {
+            setSubmitting(true);
+            onClose();
+          })
+        );
+
+        return;
+      }
+
+      dispatch(addPatient(values, () => setSubmitting(true)));
     }
   });
 
-  return { form, update };
+  return { form, update, add, selectedPatient };
 };
 
-export default usePatientEditModal;
+export default usePatientModal;

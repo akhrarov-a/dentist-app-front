@@ -109,7 +109,13 @@ class PatientsSaga {
       yield put(addPatient.success());
       yield call(callback);
     } catch (err) {
-      yield put(addPatient.fail(err.response.data.message[0]));
+      const errorMessage = err.response.data.message;
+
+      if (typeof errorMessage !== 'string') {
+        yield put(addPatient.fail(errorMessage[0]));
+      } else {
+        yield put(addPatient.fail(errorMessage));
+      }
     }
   }
 }

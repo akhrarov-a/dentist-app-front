@@ -3,6 +3,8 @@ import {
   deletePatientById,
   getPatientById,
   getPatients,
+  setErrors,
+  singlePatientPageUnmount,
   updatePatientById
 } from './actions';
 import { reducer } from 'redux-chill';
@@ -37,6 +39,16 @@ const patientsReducer = reducer(new PatientsReducerState())
   })
   .on(addPatient.fail, (state, error) => {
     state.errors.add = error;
+  })
+  .on(singlePatientPageUnmount, (state) => {
+    state.selectedPatient = null;
+    state.errors.update = null;
+  })
+  .on(setErrors.update, (state) => {
+    state.errors.update = null;
+  })
+  .on(setErrors.add, (state) => {
+    state.errors.add = null;
   });
 
 export default patientsReducer;

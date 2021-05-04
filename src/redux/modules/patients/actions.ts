@@ -41,3 +41,15 @@ export const addPatient = make('[patients] add')
   }))
   .stage('success')
   .stage('fail', (error: string) => error);
+
+/**
+ * Single patient page unmount
+ */
+export const singlePatientPageUnmount = make('[patients] single page unmount');
+
+/**
+ * Set errors
+ */
+export const setErrors = make('[patients] set error')
+  .stage('update')
+  .stage('add');
