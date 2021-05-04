@@ -50,6 +50,16 @@ class PatientsService {
       method: 'GET',
       ...this.getHeaders()
     });
+
+  /**
+   * Delete patient by id
+   */
+  public deletePatientById = (id: number) =>
+    this.api({
+      url: `/${id}`,
+      method: 'DELETE',
+      ...this.getHeaders()
+    });
 }
 
 export default PatientsService;

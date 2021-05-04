@@ -15,3 +15,10 @@ export const getPatients = make('[patients] get')
 export const getPatientById = make('[patients] get by id')
   .stage((id: number) => ({ id }))
   .stage('success', (payload: Patient) => payload);
+
+/**
+ * Delete patient by id
+ */
+export const deletePatientById = make('[patients] delete by id')
+  .stage((id: number, callback: () => void) => ({ id, callback }))
+  .stage('success');

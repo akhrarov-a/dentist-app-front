@@ -16,6 +16,10 @@ const usePatientsPage = () => {
 
   const onQueryChange = (value: string) => {
     setQuery(value);
+
+    if (value) return;
+
+    setSelectedPage(1);
   };
 
   const onPageChange = ({ selected }: { selected: number }) => {

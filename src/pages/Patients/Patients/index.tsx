@@ -29,7 +29,7 @@ const PatientsPage: React.FC = (): JSX.Element => {
               <Cell>Email</Cell>
               <Cell>Phone number</Cell>
               <Cell>Description</Cell>
-              <Cell atCenter>Edit</Cell>
+              <Cell atCenter>Details</Cell>
             </Row>
           </Head>
           <Body>
@@ -50,8 +50,17 @@ const PatientsPage: React.FC = (): JSX.Element => {
             )}
           </Body>
         </Table>
+        {patients?.length === 0 ? (
+          <div className={styles['no-patients']}>
+            <p>You don't have patients yet</p>
+          </div>
+        ) : (
+          ''
+        )}
       </div>
-      {!query && <Pagination length={total} onPageChange={onPageChange} />}
+      {!query && patients?.length !== 0 && (
+        <Pagination length={total} onPageChange={onPageChange} />
+      )}
     </div>
   );
 };

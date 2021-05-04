@@ -1,4 +1,4 @@
-import { getPatientById, getPatients } from './actions';
+import { deletePatientById, getPatientById, getPatients } from './actions';
 import { reducer } from 'redux-chill';
 import PatientsReducerState from '../../../api/models/reducer-states/patients.state';
 
@@ -12,6 +12,9 @@ const patientsReducer = reducer(new PatientsReducerState())
   })
   .on(getPatientById.success, (state, payload) => {
     state.selectedPatient = payload;
+  })
+  .on(deletePatientById.success, (state) => {
+    state.selectedPatient = null;
   });
 
 export default patientsReducer;

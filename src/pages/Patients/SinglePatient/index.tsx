@@ -1,9 +1,10 @@
-import { IoArrowBack } from 'react-icons/all';
+import { AiOutlineDelete, IoArrowBack, RiEditBoxLine } from 'react-icons/all';
 import { NavLink, Redirect, Route, Switch } from 'react-router-dom';
 import PatientEditModal from '../../../components/PatientEditModal';
 import React from 'react';
 import SinglePatientAppointmentsPage from './Appointments';
 import SinglePatientProfilePage from './Profile';
+import classNames from 'classnames';
 import styles from './style.module.scss';
 import useSinglePatientPage from './props';
 
@@ -18,7 +19,8 @@ const SinglePatientPage: React.FC = (): JSX.Element => {
     url,
     xPosition,
     onLinkClick,
-    toggleEditModal
+    toggleEditModal,
+    onDeleteClick
   } = useSinglePatientPage();
 
   return (
@@ -29,8 +31,23 @@ const SinglePatientPage: React.FC = (): JSX.Element => {
           <IoArrowBack className={styles.icon} />
           <p>Back</p>
         </NavLink>
-        <div className={styles['edit-container']}>
-          <p onClick={toggleEditModal}>Edit</p>
+        <div className={styles['action-container']}>
+          <p onClick={toggleEditModal}>
+            <RiEditBoxLine />
+            <span
+              className={classNames(styles.tooltip, styles['tooltip--edit'])}
+            >
+              Edit
+            </span>
+          </p>
+          <p onClick={onDeleteClick}>
+            <AiOutlineDelete />
+            <span
+              className={classNames(styles.tooltip, styles['tooltip--delete'])}
+            >
+              Delete
+            </span>
+          </p>
         </div>
       </div>
       <div className={styles.content}>
