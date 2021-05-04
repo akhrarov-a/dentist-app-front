@@ -35,6 +35,7 @@ const SinglePatientPage: React.FC = (): JSX.Element => {
             Are you sure <br />
             to delete this patient ?
           </h1>
+          <h3>You won't able to recover</h3>
           <div className={styles.buttons}>
             <Button theme={'teritary'} size={'md'} onClick={toggleDeleteModal}>
               Cancel
