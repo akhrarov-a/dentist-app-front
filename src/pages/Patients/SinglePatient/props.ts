@@ -1,22 +1,15 @@
 import { AppState } from '../../../api/models/app-state';
-import {
-  deletePatientById,
-  getPatientById
-} from '../../../redux/modules/patients/actions';
+import { deletePatientById } from '../../../redux/modules/patients/actions';
 import { useDispatch, useSelector } from 'react-redux';
-import { useEffect, useState } from 'react';
 import { useHistory, useRouteMatch } from 'react-router';
+import { useState } from 'react';
 
 /**
  * Single Patient Page Props
  */
 const useSinglePatientPage = () => {
   const dispatch = useDispatch();
-  const {
-    params: { id },
-    path,
-    url
-  } = useRouteMatch<{ id: string }>();
+  const { path, url } = useRouteMatch();
   const history = useHistory();
 
   const { selectedPatient } = useSelector((state: AppState) => state.patients);
@@ -50,10 +43,6 @@ const useSinglePatientPage = () => {
       deletePatientById(selectedPatient.id, () => history.push('/patients'))
     );
   };
-
-  useEffect(() => {
-    dispatch(getPatientById(+id));
-  }, [id]);
 
   return {
     selectedPatient,

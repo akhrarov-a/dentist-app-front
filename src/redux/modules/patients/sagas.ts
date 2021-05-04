@@ -1,7 +1,13 @@
 import { Payload, Saga } from 'redux-chill';
 import { StoreContext } from '../../store/context';
+import {
+  addPatient,
+  deletePatientById,
+  getPatientById,
+  getPatients,
+  updatePatientById
+} from './actions';
 import { call, put } from 'redux-saga/effects';
-import { deletePatientById, getPatientById, getPatients } from './actions';
 
 const perPage = 10;
 
@@ -66,6 +72,44 @@ class PatientsSaga {
       yield call(callback);
     } catch (err) {
       console.log(err.message);
+    }
+  }
+
+  /**
+   * Update patient by id
+   */
+  @Saga(updatePatientById)
+  public *updatePatient(
+    { data, callback }: Payload<typeof updatePatientById>,
+    { patients }: StoreContext
+  ) {
+    try {
+      const {
+        data: { patient }
+      } = yield call(patients.updatePatientById, data);
+
+      yield put(updatePatientById.success(patient));
+      yield call(callback);
+    } catch (err) {
+      yield put(updatePatientById.fail(err.response.data.message[0]));
+    }
+  }
+
+  /**
+   * Add patient
+   */
+  @Saga(addPatient)
+  public *addPatient(
+    { data, callback }: Payload<typeof addPatient>,
+    { patients }: StoreContext
+  ) {
+    try {
+      yield call(patients.addPatient, data);
+
+      yield put(addPatient.success());
+      yield call(callback);
+    } catch (err) {
+      yield put(addPatient.fail(err.response.data.message[0]));
     }
   }
 }

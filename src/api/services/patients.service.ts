@@ -1,3 +1,4 @@
+import { Patient } from '../models/patient/patient';
 import { apiBaseUrl } from '../../utils/constants';
 import axios from 'axios';
 
@@ -59,6 +60,43 @@ class PatientsService {
       url: `/${id}`,
       method: 'DELETE',
       ...this.getHeaders()
+    });
+
+  /**
+   * Update patient by id
+   */
+  public updatePatientById = ({
+    email,
+    phoneNumber,
+    description,
+    name,
+    id
+  }: Patient) =>
+    this.api({
+      data: {
+        email,
+        phoneNumber,
+        description,
+        name
+      },
+      url: `/${id}`,
+      method: 'POST',
+      ...this.getHeaders()
+    });
+
+  /**
+   * Add patient
+   */
+  public addPatient = ({ name, phoneNumber, email, description }: Patient) =>
+    this.api({
+      data: {
+        name,
+        phoneNumber,
+        email,
+        description
+      },
+      url: '/',
+      method: 'POST'
     });
 }
 

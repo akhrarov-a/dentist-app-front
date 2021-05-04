@@ -1,4 +1,4 @@
-import { Modal } from '../../core';
+import { Button, Modal } from '../../core';
 import { PatientModalProps } from './type';
 import React from 'react';
 import styles from './styles.module.scss';
@@ -7,7 +7,7 @@ import usePatientEditModal from './props';
 const PatientEditModal: React.FC<PatientModalProps> = ({
   onClose
 }): JSX.Element => {
-  const { form } = usePatientEditModal();
+  const { form, update } = usePatientEditModal({ onClose });
 
   const { name, email, phoneNumber, description } = form.values;
   return (
@@ -46,6 +46,9 @@ const PatientEditModal: React.FC<PatientModalProps> = ({
             onChange={form.handleChange}
           />
         </div>
+
+        <p>{update}</p>
+        <Button type={'submit'}>Submit</Button>
       </form>
     </Modal>
   );

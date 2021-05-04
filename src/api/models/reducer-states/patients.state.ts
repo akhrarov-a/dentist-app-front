@@ -18,6 +18,14 @@ class PatientsReducerState {
    * Selected patient
    */
   public selectedPatient: Patient | null = null;
+
+  /**
+   * Errors
+   */
+  public errors: { [key: string]: string | null } = {
+    update: null,
+    add: null
+  };
 }
 
 export default PatientsReducerState;

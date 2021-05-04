@@ -22,3 +22,22 @@ export const getPatientById = make('[patients] get by id')
 export const deletePatientById = make('[patients] delete by id')
   .stage((id: number, callback: () => void) => ({ id, callback }))
   .stage('success');
+
+/**
+ * Update patient by id
+ */
+export const updatePatientById = make('[patients] update by id')
+  .stage((data: Patient, callback: () => void) => ({ data, callback }))
+  .stage('success', (payload: Patient) => payload)
+  .stage('fail', (error: string) => error);
+
+/**
+ * Add patient
+ */
+export const addPatient = make('[patients] add')
+  .stage((data: Patient, callback: () => void) => ({
+    data,
+    callback
+  }))
+  .stage('success')
+  .stage('fail', (error: string) => error);
