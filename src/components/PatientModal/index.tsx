@@ -13,7 +13,7 @@ const PatientModal = hoc(
   usePatientModal,
   ({ form, update, add, selectedPatient, onClose }) => {
     const { name, email, phoneNumber, description } = form.values;
-    const { handleChange } = form;
+    const { handleChange, errors } = form;
     return (
       <Modal className={styles.container}>
         <div className={styles.header}>
@@ -21,36 +21,40 @@ const PatientModal = hoc(
           <GrClose className={styles.icon} onClick={onClose} />
         </div>
         <form className={styles.form} onSubmit={form.handleSubmit}>
-          <div>
+          <div className={styles.group}>
             <Input
               type={'text'}
               name={'name'}
-              placeholder={'Name'}
+              label={'Name'}
               value={name}
               onChange={handleChange}
+              error={!!errors.name}
             />
             <Input
               type={'email'}
               name={'email'}
-              placeholder={'Email'}
+              label={'Email'}
               value={email}
               onChange={handleChange}
+              error={!!errors.email}
             />
           </div>
-          <div>
+          <div className={styles.group}>
             <Input
               type={'text'}
               name={'phoneNumber'}
-              placeholder={'Phone'}
+              label={'Phone'}
               value={phoneNumber}
               onChange={handleChange}
+              error={!!errors.phoneNumber}
             />
             <Input
               type={'text'}
               name={'description'}
-              placeholder={'Description'}
+              label={'Description'}
               value={description}
               onChange={handleChange}
+              error={!!errors.description}
             />
           </div>
 

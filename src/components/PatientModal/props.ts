@@ -1,6 +1,7 @@
 import { AddOrUpdatePatient } from '../../api/models/patient/patient';
 import { AppState } from '../../api/models/app-state';
 import { PatientModalProps } from './type';
+import { addOrUpdatePatientSchema } from '../../validations/add-or-update-patient-schema/add-or-update-patient.schema';
 import {
   addPatient,
   updatePatientById
@@ -46,7 +47,9 @@ export const usePatientModal = ({ onClose }: PatientModalProps) => {
           onClose();
         })
       );
-    }
+    },
+    validationSchema: addOrUpdatePatientSchema,
+    validateOnChange: false
   });
 
   return { form, update, add, selectedPatient };

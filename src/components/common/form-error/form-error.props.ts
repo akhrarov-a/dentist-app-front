@@ -5,7 +5,7 @@ interface FormErrorProps {
   /**
    * Text
    */
-  text: string | null;
+  text: string | null | undefined;
 }
 
 export type { FormErrorProps };
