@@ -19,4 +19,5 @@ export type AddOrUpdatePatient = {
   phoneNumber: string;
   email?: string;
   description: string;
+  userId?: number;
 };
