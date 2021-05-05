@@ -6,6 +6,7 @@ import {
 } from '../../../redux/modules/patients/actions';
 import { useCallback, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useTitles } from '../../../hooks/useTitles';
 
 /**
  * Patients Page Props
@@ -14,6 +15,8 @@ export const usePatientsPage = () => {
   const dispatch = useDispatch();
 
   const { patients, total } = useSelector((state: AppState) => state.patients);
+
+  const links = useTitles('patients');
 
   const [isAdding, setIsAdding] = useState(false);
   const [isDeleting, setIsDeleting] = useState(false);
@@ -87,6 +90,7 @@ export const usePatientsPage = () => {
   }, [selectedPage, query]);
 
   return {
+    links,
     patients,
     query,
     total,

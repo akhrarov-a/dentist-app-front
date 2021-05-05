@@ -23,6 +23,7 @@ import styles from './style.module.scss';
 const PatientsPage = hoc(
   usePatientsPage,
   ({
+    links,
     isAdding,
     isDeleting,
     patients,
@@ -73,7 +74,7 @@ const PatientsPage = hoc(
           <Head>
             <Row className={styles.row}>
               {patients?.length ? (
-                <Cell>
+                <Cell className={styles.pl}>
                   <input
                     type={'checkbox'}
                     checked={selectedPatients?.length === patients?.length}
@@ -81,25 +82,25 @@ const PatientsPage = hoc(
                   />
                 </Cell>
               ) : null}
-              <Cell className={styles.pl}>Name</Cell>
-              <Cell>Email</Cell>
-              <Cell>Phone number</Cell>
-              <Cell>Description</Cell>
-              <Cell atCenter>Details</Cell>
+              {links.map(({ atCenter, atEnd, name, bold }, index) => (
+                <Cell key={index} atEnd={atEnd} atCenter={atCenter} bold={bold}>
+                  {name}
+                </Cell>
+              ))}
             </Row>
           </Head>
           <Body>
             {patients?.map(
               ({ id, name, phoneNumber, email, description }, index) => (
                 <Row key={index} className={styles.row}>
-                  <Cell>
+                  <Cell className={styles.pl}>
                     <input
                       type={'checkbox'}
                       checked={selectedPatients?.some((value) => value === id)}
                       onChange={() => onPatientCheckboxClick(id)}
                     />
                   </Cell>
-                  <Cell className={styles.pl}>{name}</Cell>
+                  <Cell>{name}</Cell>
                   <Cell>{email}</Cell>
                   <Cell>{phoneNumber}</Cell>
                   <Cell>{description?.substr(0, 14)}</Cell>

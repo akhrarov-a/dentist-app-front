@@ -1,7 +1,7 @@
 /**
- * Navigation Links
+ * Sidebar Links
  */
-export const useNavigationLinks = (): {
+export const useSidebarLinks = (): {
   name: string;
   iconKey: string;
   to: string;

@@ -2,7 +2,7 @@ import { AppState } from '../../api/models/app-state';
 import { logOut } from '../../redux/modules/auth/actions';
 import { useCallback, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useNavigationLinks } from '../../hooks/useNavigationLinks';
+import { useSidebarLinks } from '../../hooks/useSidebarLinks';
 
 /**
  * Layout Props
@@ -14,7 +14,8 @@ export const useLayout = () => {
 
   const { user } = useSelector((state: AppState) => state.auth);
 
-  const links = useNavigationLinks();
+  const links = useSidebarLinks();
+
   const [isOpen, setIsOpen] = useState(false);
   const [xPosition, setX] = useState(-width);
 

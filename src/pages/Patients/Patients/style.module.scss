@@ -10,7 +10,10 @@
 }
 
 .pl {
-  padding-left: 30px;
+  & > * {
+    margin-left: 20px;
+    margin-right: -25px;
+  }
 }
 
 .iconInfo {
