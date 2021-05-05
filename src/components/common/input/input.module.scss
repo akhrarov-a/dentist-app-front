@@ -1,10 +1,33 @@
 @import '../../../styles/variables.scss';
 
+.container {
+  position: relative;
+}
+
+.label {
+  position: absolute;
+  left: 20px;
+  transition: 0.1s ease all;
+
+  &--no-focus {
+    top: 28px;
+    color: $black-hover;
+    font-size: 18px;
+  }
+
+  &--on-focus {
+    top: 14px;
+    color: $light-theme-dark-blue;
+    font-size: 14px;
+  }
+}
+
 .input {
   width: 220px;
-  height: 30px;
+  height: 40px;
   margin: 10px;
-  padding: 5px 10px;
+  padding: 0 10px;
+  padding-top: 14px;
   outline: none;
   border: 2px solid $light-grey;
   border-radius: 4px;
@@ -14,4 +37,8 @@
   &:focus {
     border: 2px solid $light-theme-dark-blue;
   }
+}
+
+.error {
+  border: 2px solid $red;
 }

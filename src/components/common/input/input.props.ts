@@ -8,6 +8,11 @@ interface InputProps {
   className?: string;
 
   /**
+   * Label
+   */
+  label?: string;
+
+  /**
    * Type
    */
   type?: 'text' | 'number' | 'password' | 'email';
@@ -30,7 +35,12 @@ interface InputProps {
   /**
    * On change
    */
-  onChange?: (value: any) => void;
+  onChange: (value: any) => void;
+
+  /**
+   * Error
+   */
+  error?: boolean;
 }
 
 export type { InputProps };
