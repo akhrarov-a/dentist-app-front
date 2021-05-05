@@ -83,7 +83,7 @@ export const usePatientsPage = () => {
     } else {
       setSelectedPatients(data);
     }
-  }, [selectedPatients]);
+  }, [selectedPatients, patients]);
 
   useEffect(() => {
     dispatch(getPatients(selectedPage, query));

@@ -9,6 +9,7 @@ import {
   Table
 } from '../../../components/common';
 import { BsInfoCircle } from 'react-icons/all';
+import { Checkbox } from '../../../components/common/checkbox';
 import { NavLink } from 'react-router-dom';
 import { hoc } from '../../../utils/hoc';
 import { usePatientsPage } from './props';
@@ -75,8 +76,7 @@ const PatientsPage = hoc(
             <Row className={styles.row}>
               {patients?.length ? (
                 <Cell className={styles.pl}>
-                  <input
-                    type={'checkbox'}
+                  <Checkbox
                     checked={selectedPatients?.length === patients?.length}
                     onChange={onAllCheckboxClick}
                   />
@@ -94,8 +94,7 @@ const PatientsPage = hoc(
               ({ id, name, phoneNumber, email, description }, index) => (
                 <Row key={index} className={styles.row}>
                   <Cell className={styles.pl}>
-                    <input
-                      type={'checkbox'}
+                    <Checkbox
                       checked={selectedPatients?.some((value) => value === id)}
                       onChange={() => onPatientCheckboxClick(id)}
                     />
