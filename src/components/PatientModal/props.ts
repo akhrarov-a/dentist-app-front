@@ -1,5 +1,4 @@
 import { AppState } from '../../api/models/app-state';
-import { Patient } from '../../api/models/patient/patient';
 import { PatientModalProps } from './type';
 import {
   addPatient,
@@ -19,7 +18,7 @@ export const usePatientModal = ({ onClose }: PatientModalProps) => {
     errors: { update, add }
   } = useSelector((state: AppState) => state.patients);
 
-  const form = useFormik<Patient>({
+  const form = useFormik({
     initialValues: {
       name: selectedPatient?.name || '',
       email: selectedPatient?.email || '',

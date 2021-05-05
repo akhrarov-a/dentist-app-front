@@ -1,4 +1,7 @@
-import { Patient } from '../../../api/models/patient/patient';
+import {
+  AddOrUpdatePatient,
+  Patient
+} from '../../../api/models/patient/patient';
 import { make } from 'redux-chill';
 
 /**
@@ -27,7 +30,10 @@ export const deletePatientById = make('[patients] delete by id')
  * Update patient by id
  */
 export const updatePatientById = make('[patients] update by id')
-  .stage((data: Patient, callback: () => void) => ({ data, callback }))
+  .stage((data: AddOrUpdatePatient, callback: () => void) => ({
+    data,
+    callback
+  }))
   .stage('success', (payload: Patient) => payload)
   .stage('fail', (error: string) => error);
 
@@ -35,7 +41,7 @@ export const updatePatientById = make('[patients] update by id')
  * Add patient
  */
 export const addPatient = make('[patients] add')
-  .stage((data: Patient, callback: () => void) => ({
+  .stage((data: AddOrUpdatePatient, callback: () => void) => ({
     data,
     callback
   }))

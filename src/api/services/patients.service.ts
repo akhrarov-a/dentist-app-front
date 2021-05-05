@@ -1,4 +1,4 @@
-import { Patient } from '../models/patient/patient';
+import { AddOrUpdatePatient } from '../models/patient/patient';
 import { apiBaseUrl } from '../../utils/constants';
 import axios from 'axios';
 
@@ -71,7 +71,7 @@ class PatientsService {
     description,
     name,
     id
-  }: Patient) =>
+  }: AddOrUpdatePatient) =>
     this.api({
       data: {
         email,
@@ -87,7 +87,12 @@ class PatientsService {
   /**
    * Add patient
    */
-  public addPatient = ({ name, phoneNumber, email, description }: Patient) =>
+  public addPatient = ({
+    name,
+    phoneNumber,
+    email,
+    description
+  }: AddOrUpdatePatient) =>
     this.api({
       data: {
         name,
