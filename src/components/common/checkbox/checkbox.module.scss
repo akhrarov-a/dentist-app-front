@@ -1,0 +1,54 @@
+@import '../../../styles/variables.scss';
+
+.box {
+  width: 16px;
+  height: 16px;
+  position: relative;
+  margin-right: 14px;
+  background: white;
+  border: thin solid $light-grey;
+  border-radius: 4px;
+  transition: $transition-fast;
+  cursor: pointer;
+}
+
+.checkmark {
+  position: absolute;
+  top: 8px;
+  left: 3px;
+  width: 6px;
+  height: 2px;
+  background: #fff;
+
+  transform: rotate(45deg);
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+
+    width: 2px;
+    height: 8.5px;
+
+    background: inherit;
+  }
+}
+
+.checkbox {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+
+  &--active {
+    .box {
+      background: $light-theme-dark-blue;
+      border: none;
+    }
+
+    .checkmark {
+      display: block;
+    }
+  }
+}
