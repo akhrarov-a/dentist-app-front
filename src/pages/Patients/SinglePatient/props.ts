@@ -11,7 +11,7 @@ import { useHistory, useRouteMatch } from 'react-router';
 /**
  * Single Patient Page Props
  */
-const useSinglePatientPage = () => {
+export const useSinglePatientPage = () => {
   const dispatch = useDispatch();
   const { path, url } = useRouteMatch();
   const history = useHistory();
@@ -72,5 +72,3 @@ const useSinglePatientPage = () => {
     onSubmitDeleteClick
   };
 };
-
-export default useSinglePatientPage;

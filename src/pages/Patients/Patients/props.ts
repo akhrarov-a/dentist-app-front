@@ -10,7 +10,7 @@ import { useDispatch, useSelector } from 'react-redux';
 /**
  * Patients Page Props
  */
-const usePatientsPage = () => {
+export const usePatientsPage = () => {
   const dispatch = useDispatch();
 
   const { patients, total } = useSelector((state: AppState) => state.patients);
@@ -103,5 +103,3 @@ const usePatientsPage = () => {
     selectedPage
   };
 };
-
-export default usePatientsPage;

@@ -11,11 +11,11 @@ import {
 import { BsInfoCircle } from 'react-icons/all';
 import { NavLink } from 'react-router-dom';
 import { hoc } from '../../../utils/hoc';
+import { usePatientsPage } from './props';
 import PatientModal from '../../../components/PatientModal';
 import PatientsNavbar from '../../../components/PatientsNavbar';
 import React from 'react';
 import styles from './style.module.scss';
-import usePatientsPage from './props';
 
 /**
  * Patients Page

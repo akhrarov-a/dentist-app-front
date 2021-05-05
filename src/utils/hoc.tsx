@@ -1,5 +1,4 @@
-import * as React from 'react';
-import { ComponentType } from 'react';
+import React, { ComponentType } from 'react';
 
 const hoc = function <SP, HP>(
   hook: (props: Partial<SP>) => HP,

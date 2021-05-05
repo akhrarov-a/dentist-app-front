@@ -1,9 +1,9 @@
 import { Button, FormError, Input, Modal } from '../common';
 import { GrClose } from 'react-icons/all';
 import { hoc } from '../../utils/hoc';
+import { usePatientModal } from './props';
 import React from 'react';
 import styles from './styles.module.scss';
-import usePatientModal from './props';
 
 /**
  * Patient Modal

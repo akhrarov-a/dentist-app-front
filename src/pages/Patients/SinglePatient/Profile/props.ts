@@ -7,7 +7,7 @@ import { useRouteMatch } from 'react-router';
 /**
  * Single Patient Profile Page Props
  */
-const useSinglePatientProfilePage = () => {
+export const useSinglePatientProfilePage = () => {
   const dispatch = useDispatch();
   const {
     params: { id }
@@ -21,5 +21,3 @@ const useSinglePatientProfilePage = () => {
 
   return { selectedPatient };
 };
-
-export default useSinglePatientProfilePage;

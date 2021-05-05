@@ -7,7 +7,7 @@ import { useNavigationLinks } from '../../hooks/useNavigationLinks';
 /**
  * Layout Props
  */
-const useLayout = () => {
+export const useLayout = () => {
   const width = 280;
 
   const dispatch = useDispatch();
@@ -42,5 +42,3 @@ const useLayout = () => {
     onLogoutClick
   };
 };
-
-export default useLayout;

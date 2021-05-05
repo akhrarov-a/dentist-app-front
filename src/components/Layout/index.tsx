@@ -8,10 +8,10 @@ import {
 } from 'react-icons/all';
 import { NavLink } from 'react-router-dom';
 import { hoc } from '../../utils/hoc';
+import { useLayout } from './props';
 import React from 'react';
 import classNames from 'classnames';
 import styles from './style.module.scss';
-import useLayout from './props';
 
 /**
  * Renders Layout

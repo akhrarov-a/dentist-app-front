@@ -1,7 +1,7 @@
 import { hoc } from '../../../../utils/hoc';
+import { useSinglePatientAppointmentPage } from './props';
 import React from 'react';
 import styles from './style.module.scss';
-import useSinglePatientAppointmentPage from './props';
 
 /**
  * Single Patient Appointments Page

@@ -1,7 +1,7 @@
 import { hoc } from '../../utils/hoc';
+import { useSignInPage } from './props';
 import React from 'react';
 import styles from './style.module.scss';
-import useSignInPage from './props';
 
 /**
  * Sign In Page

@@ -11,7 +11,7 @@ import { useFormik } from 'formik';
 /**
  * Patient Props
  */
-const usePatientModal = ({ onClose }: PatientModalProps) => {
+export const usePatientModal = ({ onClose }: PatientModalProps) => {
   const dispatch = useDispatch();
 
   const {
@@ -51,5 +51,3 @@ const usePatientModal = ({ onClose }: PatientModalProps) => {
 
   return { form, update, add, selectedPatient };
 };
-
-export default usePatientModal;

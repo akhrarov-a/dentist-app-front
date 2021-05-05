@@ -1,7 +1,7 @@
 import { hoc } from '../../../../utils/hoc';
+import { useSinglePatientProfilePage } from './props';
 import React from 'react';
 import styles from './style.module.scss';
-import useSinglePatientProfilePage from './props';
 
 /**
  * Single Patient Profile Page

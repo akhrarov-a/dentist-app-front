@@ -1,6 +1,6 @@
 import { hoc } from '../../utils/hoc';
+import { useDashboardPage } from './props';
 import React from 'react';
-import useDashboardPage from './props';
 
 /**
  * Dashboard Page

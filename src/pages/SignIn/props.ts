@@ -7,7 +7,7 @@ import { useFormik } from 'formik';
 /**
  * Sign In Page Props
  */
-const useSignInPage = () => {
+export const useSignInPage = () => {
   const dispatch = useDispatch();
 
   const { error } = useSelector((state: AppState) => state.auth);
@@ -25,5 +25,3 @@ const useSignInPage = () => {
 
   return { formik, error };
 };
-
-export default useSignInPage;

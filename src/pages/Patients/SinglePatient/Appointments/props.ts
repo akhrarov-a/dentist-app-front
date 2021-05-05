@@ -4,10 +4,8 @@ import { useSelector } from 'react-redux';
 /**
  * Single Patient Appointment Page Props
  */
-const useSinglePatientAppointmentPage = () => {
+export const useSinglePatientAppointmentPage = () => {
   const { selectedPatient } = useSelector((state: AppState) => state.patients);
 
   return { selectedPatient };
 };
-
-export default useSinglePatientAppointmentPage;

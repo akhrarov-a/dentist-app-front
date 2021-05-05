@@ -6,7 +6,7 @@ import { useEffect } from 'react';
 /**
  * App Props
  */
-const useApp = () => {
+export const useApp = () => {
   const dispatch = useDispatch();
 
   const { isAuthenticated } = useSelector((state: AppState) => state.auth);
@@ -17,5 +17,3 @@ const useApp = () => {
 
   return { isAuthenticated };
 };
-
-export default useApp;

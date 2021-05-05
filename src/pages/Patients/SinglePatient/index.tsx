@@ -2,13 +2,13 @@ import { AiOutlineDelete, IoArrowBack, RiEditBoxLine } from 'react-icons/all';
 import { Button, Modal } from '../../../components/common';
 import { NavLink, Redirect, Route, Switch } from 'react-router-dom';
 import { hoc } from '../../../utils/hoc';
+import { useSinglePatientPage } from './props';
 import PatientModal from '../../../components/PatientModal';
 import React from 'react';
 import SinglePatientAppointmentsPage from './Appointments';
 import SinglePatientProfilePage from './Profile';
 import classNames from 'classnames';
 import styles from './style.module.scss';
-import useSinglePatientPage from './props';
 
 /**
  * Single Patient Page

@@ -1,12 +1,12 @@
 import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
 import { hoc } from '../utils/hoc';
+import { useApp } from './props';
 import DashboardPage from '../pages/Dashboard';
 import Layout from '../components/Layout';
 import Patients from '../pages/Patients';
 import React from 'react';
 import SignInPage from '../pages/SignIn';
 import styles from './style.module.scss';
-import useApp from './props';
 
 /**
  * Renders App
