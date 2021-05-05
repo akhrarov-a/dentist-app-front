@@ -7,6 +7,7 @@ import {
   MdEvent
 } from 'react-icons/all';
 import { NavLink } from 'react-router-dom';
+import { hoc } from '../../utils/hoc';
 import React from 'react';
 import classNames from 'classnames';
 import styles from './style.module.scss';
@@ -15,18 +16,18 @@ import useLayout from './props';
 /**
  * Renders Layout
  */
-const Layout: React.FC = ({ children }): JSX.Element => {
-  const {
+const Layout = hoc(
+  useLayout,
+  ({
     links,
     toggleSidebar,
     width,
     xPosition,
     isOpen,
     name,
-    onLogoutClick
-  } = useLayout();
-
-  return (
+    onLogoutClick,
+    children
+  }) => (
     <div className={styles.layout}>
       <div
         className={styles.navigation}
@@ -83,7 +84,7 @@ const Layout: React.FC = ({ children }): JSX.Element => {
         <div className={styles.children}>{children}</div>
       </div>
     </div>
-  );
-};
+  )
+);
 
 export default Layout;

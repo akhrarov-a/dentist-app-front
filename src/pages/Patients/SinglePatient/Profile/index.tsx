@@ -1,3 +1,4 @@
+import { hoc } from '../../../../utils/hoc';
 import React from 'react';
 import styles from './style.module.scss';
 import useSinglePatientProfilePage from './props';
@@ -5,10 +6,9 @@ import useSinglePatientProfilePage from './props';
 /**
  * Single Patient Profile Page
  */
-const SinglePatientProfilePage: React.FC = (): JSX.Element => {
-  const { selectedPatient } = useSinglePatientProfilePage();
-
-  return (
+const SinglePatientProfilePage = hoc(
+  useSinglePatientProfilePage,
+  ({ selectedPatient }) => (
     <div className={styles.container}>
       <div className={styles.controls}>
         <div>
@@ -31,7 +31,7 @@ const SinglePatientProfilePage: React.FC = (): JSX.Element => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+);
 
 export default SinglePatientProfilePage;

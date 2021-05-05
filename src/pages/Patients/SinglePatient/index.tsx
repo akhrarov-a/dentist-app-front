@@ -1,6 +1,7 @@
 import { AiOutlineDelete, IoArrowBack, RiEditBoxLine } from 'react-icons/all';
 import { Button, Modal } from '../../../components/common';
 import { NavLink, Redirect, Route, Switch } from 'react-router-dom';
+import { hoc } from '../../../utils/hoc';
 import PatientModal from '../../../components/PatientModal';
 import React from 'react';
 import SinglePatientAppointmentsPage from './Appointments';
@@ -12,8 +13,9 @@ import useSinglePatientPage from './props';
 /**
  * Single Patient Page
  */
-const SinglePatientPage: React.FC = (): JSX.Element => {
-  const {
+const SinglePatientPage = hoc(
+  useSinglePatientPage,
+  ({
     selectedPatient,
     isEditing,
     isDeleting,
@@ -24,9 +26,7 @@ const SinglePatientPage: React.FC = (): JSX.Element => {
     toggleEditModal,
     toggleDeleteModal,
     onSubmitDeleteClick
-  } = useSinglePatientPage();
-
-  return (
+  }) => (
     <div className={styles.container}>
       {isEditing && <PatientModal onClose={toggleEditModal} />}
       {isDeleting && (
@@ -120,7 +120,7 @@ const SinglePatientPage: React.FC = (): JSX.Element => {
         </Switch>
       </div>
     </div>
-  );
-};
+  )
+);
 
 export default SinglePatientPage;

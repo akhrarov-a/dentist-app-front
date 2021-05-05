@@ -10,6 +10,7 @@ import {
 } from '../../../components/common';
 import { BsInfoCircle } from 'react-icons/all';
 import { NavLink } from 'react-router-dom';
+import { hoc } from '../../../utils/hoc';
 import PatientModal from '../../../components/PatientModal';
 import PatientsNavbar from '../../../components/PatientsNavbar';
 import React from 'react';
@@ -19,8 +20,9 @@ import usePatientsPage from './props';
 /**
  * Patients Page
  */
-const PatientsPage: React.FC = (): JSX.Element => {
-  const {
+const PatientsPage = hoc(
+  usePatientsPage,
+  ({
     isAdding,
     isDeleting,
     patients,
@@ -35,9 +37,7 @@ const PatientsPage: React.FC = (): JSX.Element => {
     onPatientCheckboxClick,
     onAllCheckboxClick,
     selectedPage
-  } = usePatientsPage();
-
-  return (
+  }) => (
     <div className={styles.container}>
       {isAdding && <PatientModal onClose={toggleEditingModal} />}
       {isDeleting && (
@@ -136,7 +136,7 @@ const PatientsPage: React.FC = (): JSX.Element => {
         />
       )}
     </div>
-  );
-};
+  )
+);
 
 export default PatientsPage;
