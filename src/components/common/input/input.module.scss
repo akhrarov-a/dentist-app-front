@@ -26,6 +26,7 @@
   width: 220px;
   height: 40px;
   margin: 10px;
+  margin-bottom: 20px;
   padding: 0 10px;
   padding-top: 14px;
   outline: none;
@@ -41,4 +42,21 @@
 
 .error {
   border: 2px solid $red;
+}
+
+.error-text {
+  position: absolute;
+  bottom: 0;
+  left: 20px;
+  padding: 0;
+  margin: 0;
+  color: $red;
+
+  svg {
+    font-size: 16px;
+  }
+
+  p {
+    font-size: 12px;
+  }
 }

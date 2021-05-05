@@ -28,7 +28,7 @@ const PatientModal = hoc(
               label={'Name'}
               value={name}
               onChange={handleChange}
-              error={!!errors.name}
+              error={errors.name}
             />
             <Input
               type={'email'}
@@ -36,7 +36,7 @@ const PatientModal = hoc(
               label={'Email'}
               value={email}
               onChange={handleChange}
-              error={!!errors.email}
+              error={errors.email}
             />
           </div>
           <div className={styles.group}>
@@ -46,7 +46,7 @@ const PatientModal = hoc(
               label={'Phone'}
               value={phoneNumber}
               onChange={handleChange}
-              error={!!errors.phoneNumber}
+              error={errors.phoneNumber}
             />
             <Input
               type={'text'}
@@ -54,7 +54,7 @@ const PatientModal = hoc(
               label={'Description'}
               value={description}
               onChange={handleChange}
-              error={!!errors.description}
+              error={errors.description}
             />
           </div>
 

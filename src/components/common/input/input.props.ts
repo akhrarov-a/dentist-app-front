@@ -38,9 +38,9 @@ interface InputProps {
   onChange: (value: any) => void;
 
   /**
-   * Error
+   * Error text
    */
-  error?: boolean;
+  error?: string | null | undefined;
 }
 
 export type { InputProps };

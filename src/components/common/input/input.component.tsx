@@ -1,3 +1,4 @@
+import { FormError } from '../form-error';
 import { InputProps } from './input.props';
 import React, { useCallback, useEffect, useState } from 'react';
 import classNames from 'classnames';
@@ -50,13 +51,14 @@ const Input: React.FC<InputProps> = ({
         className={classNames(
           styles.input,
           className,
-          error ? styles.error : ''
+          !!error ? styles.error : ''
         )}
         value={value}
         onFocus={onFocus}
         onBlur={onBlur}
         {...props}
       />
+      {error && <FormError className={styles['error-text']} text={error} />}
     </div>
   );
 };
