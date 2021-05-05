@@ -1,3 +1,4 @@
+import { LogIn } from '../../../api/models/log-in/log-in';
 import { User } from '../../../api/models/user/user';
 import { make } from 'redux-chill';
 
@@ -17,7 +18,7 @@ export const getUser = make('[auth] get user')
  * Log in
  * */
 export const logIn = make('[auth] sign in')
-  .stage((payload: { username: string; password: string }) => payload)
+  .stage((payload: LogIn) => payload)
   .stage('success')
   .stage('fail', (error) => error);
 

@@ -1,4 +1,5 @@
 import { AppState } from '../../api/models/app-state';
+import { LogIn } from '../../api/models/log-in/log-in';
 import { logIn } from '../../redux/modules/auth/actions';
 import { loginSchema } from '../../validations/log-in-schema/login.schema';
 import { useDispatch, useSelector } from 'react-redux';
@@ -12,7 +13,7 @@ export const useSignInPage = () => {
 
   const { error } = useSelector((state: AppState) => state.auth);
 
-  const formik = useFormik({
+  const formik = useFormik<LogIn>({
     initialValues: {
       username: '',
       password: ''
