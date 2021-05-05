@@ -5,7 +5,7 @@ import classNames from 'classnames';
 import styles from './form-error.module.scss';
 
 /**
- * Renders Pagination
+ * Renders Form Error
  */
 const FormError: React.FC<FormErrorProps> = ({
   text,

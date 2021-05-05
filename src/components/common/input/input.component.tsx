@@ -5,7 +5,7 @@ import classNames from 'classnames';
 import styles from './input.module.scss';
 
 /**
- * Renders Pagination
+ * Renders Input
  */
 const Input: React.FC<InputProps> = ({
   className,
