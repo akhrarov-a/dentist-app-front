@@ -1,5 +1,5 @@
 import { AiOutlineDelete, IoArrowBack, RiEditBoxLine } from 'react-icons/all';
-import { Button, Modal } from '../../../core';
+import { Button, Modal } from '../../../components/common';
 import { NavLink, Redirect, Route, Switch } from 'react-router-dom';
 import PatientModal from '../../../components/PatientModal';
 import React from 'react';

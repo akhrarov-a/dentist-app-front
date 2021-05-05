@@ -1,4 +1,4 @@
-import { Button, FormError, Input, Modal } from '../../core';
+import { Button, FormError, Input, Modal } from '../common';
 import { GrClose } from 'react-icons/all';
 import { PatientModalProps } from './type';
 import React from 'react';
@@ -64,7 +64,7 @@ const PatientModal: React.FC<PatientModalProps> = ({
           type={'submit'}
           style={{ marginTop: update || add ? '20px' : '40px' }}
         >
-          Submit
+          {selectedPatient ? 'Edit' : 'Add'}
         </Button>
       </form>
     </Modal>

@@ -1,6 +1,6 @@
 import { AiOutlineDelete, IoIosAdd } from 'react-icons/all';
 import { PatientsNavbarProps } from './props';
-import { Search } from '../../core';
+import { Search } from '../common';
 import React from 'react';
 import classNames from 'classnames';
 import styles from './style.module.scss';

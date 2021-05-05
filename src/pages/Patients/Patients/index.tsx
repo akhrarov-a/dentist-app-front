@@ -7,7 +7,7 @@ import {
   Pagination,
   Row,
   Table
-} from '../../../core';
+} from '../../../components/common';
 import { BsInfoCircle } from 'react-icons/all';
 import { NavLink } from 'react-router-dom';
 import PatientModal from '../../../components/PatientModal';
