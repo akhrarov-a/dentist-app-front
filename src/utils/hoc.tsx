@@ -1,6 +1,6 @@
 import React, { ComponentType } from 'react';
 
-const hoc = function <SP, HP>(
+export const hoc = function <SP, HP>(
   hook: (props: Partial<SP>) => HP,
   Source: ComponentType<HP & SP>
 ) {
@@ -16,5 +16,3 @@ const hoc = function <SP, HP>(
     hook: typeof hook;
   };
 };
-
-export { hoc };

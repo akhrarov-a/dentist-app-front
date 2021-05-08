@@ -38,44 +38,33 @@
 }
 
 .form {
+  width: 100%;
   margin-top: 80px;
 }
 
 .controls {
-  display: flex;
-  flex-direction: column;
+  width: inherit;
   margin-bottom: 20px;
 
+
   input {
-    outline: none;
-    border: 2px solid $light-theme-dark-blue;
-    border-radius: 5px;
-    padding: 10px 15px;
-    font-size: 20px;
-    color: $light-theme-dark-blue;
-    transition: border 0.1s;
-
-
-    &::placeholder {
-      font-size: 20px;
-      font-weight: 400;
-      color: $light-theme-dark-blue;
-    }
-
-    &:focus {
-      border: 2px solid lighten($light-theme-dark-blue, 30%);
-    }
+    width: 90%;
+    margin-left: 8px;
   }
 }
 
 .submit-container {
+  width: 100%;
   display: flex;
+  flex-direction: row;
   justify-content: center;
+  align-items: center;
 }
 
 .submit-button {
-  width: 100%;
+  width: 50%;
   cursor: pointer;
+  margin: 0 10px;
   margin-top: 20px;
   padding: 12px 0;
   color: $white;

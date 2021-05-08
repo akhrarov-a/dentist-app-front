@@ -1,3 +1,4 @@
+import { Input } from '../../components/common';
 import { hoc } from '../../utils/hoc';
 import { useSignInPage } from './props';
 import React from 'react';
@@ -15,23 +16,23 @@ const SignInPage = hoc(useSignInPage, ({ formik, error }) => (
       </div>
       <form onSubmit={formik.handleSubmit} className={styles.form}>
         <div className={styles.controls}>
-          <input
-            id={'username'}
+          <Input
             name={'username'}
-            type={'username'}
-            placeholder={'Username'}
+            type={'text'}
+            label={'Username'}
             onChange={formik.handleChange}
             value={formik.values.username}
+            error={formik.errors.username}
           />
         </div>
         <div className={styles.controls}>
-          <input
-            id={'password'}
+          <Input
             name={'password'}
             type={'password'}
-            placeholder={'Password'}
+            label={'Password'}
             onChange={formik.handleChange}
             value={formik.values.password}
+            error={formik.errors.password}
           />
         </div>
         {error && <p>{error}</p>}
