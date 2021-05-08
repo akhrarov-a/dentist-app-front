@@ -102,7 +102,7 @@ const SinglePatientPage = hoc(
             <h1 className={styles.title}>{selectedPatient?.name}</h1>
             <img
               className={styles.avatar}
-              src={'/logo192.png'}
+              src={'/logo.png'}
               alt={'User avatar'}
             />
           </div>

@@ -76,7 +76,7 @@ const Layout = hoc(
             <p className={styles['header-title']}>{name}</p>
             <img
               className={styles['header-avatar']}
-              src={'/logo192.png'}
+              src={'/logo.png'}
               alt={'User Avatar'}
             />
           </div>

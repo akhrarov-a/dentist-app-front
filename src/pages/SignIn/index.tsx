@@ -11,7 +11,7 @@ const SignInPage = hoc(useSignInPage, ({ formik, error }) => (
   <div className={styles.container}>
     <div className={styles.content}>
       <div className={styles.logo}>
-        <img src={'/logo192.png'} alt={'Logo'} />
+        <img src={'/logo.png'} alt={'Logo'} />
         <p>Stomatolog UZ</p>
       </div>
       <form onSubmit={formik.handleSubmit} className={styles.form}>
