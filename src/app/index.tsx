@@ -1,6 +1,7 @@
 import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
 import { hoc } from '../utils/hoc';
 import { useApp } from './props';
+import AppointmentsPage from '../pages/Appointments';
 import DashboardPage from '../pages/Dashboard';
 import Layout from '../components/Layout';
 import Patients from '../pages/Patients';
@@ -18,6 +19,7 @@ const App = hoc(useApp, ({ isAuthenticated }) => (
         <Layout>
           <Switch>
             <Route path={'/dashboard'} component={DashboardPage} />
+            <Route path={'/appointments'} component={AppointmentsPage} />
             <Route path={'/patients'} component={Patients} />
             <Redirect to={'/dashboard'} />
           </Switch>
