@@ -6,7 +6,7 @@ import {
 } from '../../../redux/modules/patients/actions';
 import { useCallback, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useTitles } from '../../../hooks/useTitles';
+import { useTitles } from '../../../hooks/use-titles';
 
 /**
  * Patients Page Props

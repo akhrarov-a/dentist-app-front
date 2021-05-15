@@ -74,14 +74,14 @@ const PatientsPage = hoc(
         <Table>
           <Head>
             <Row className={styles.row}>
-              {patients?.length ? (
+              {!!patients?.length && (
                 <Cell className={styles.pl}>
                   <Checkbox
                     checked={selectedPatients?.length === patients?.length}
                     onChange={onAllCheckboxClick}
                   />
                 </Cell>
-              ) : null}
+              )}
               {links.map(({ atCenter, atEnd, name, bold }, index) => (
                 <Cell key={index} atEnd={atEnd} atCenter={atCenter} bold={bold}>
                   {name}
@@ -113,19 +113,15 @@ const PatientsPage = hoc(
             )}
           </Body>
         </Table>
-        {!query && patients?.length === 0 ? (
+        {!query && patients?.length === 0 && (
           <div className={styles['no-patients']}>
             <p>You don't have patients yet</p>
           </div>
-        ) : (
-          ''
         )}
-        {query && patients?.length === 0 ? (
+        {query && patients?.length === 0 && (
           <div className={styles['no-patients']}>
             <p>No matches</p>
           </div>
-        ) : (
-          ''
         )}
       </div>
       {!query && patients?.length !== 0 && (

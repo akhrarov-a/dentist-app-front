@@ -2,7 +2,7 @@ import { AppState } from '../../api/models/app-state';
 import { logOut } from '../../redux/modules/auth/actions';
 import { useCallback, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useSidebarLinks } from '../../hooks/useSidebarLinks';
+import { useSidebarLinks } from '../../hooks/use-sidebar-links';
 
 /**
  * Layout Props
