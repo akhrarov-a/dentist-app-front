@@ -5,3 +5,4 @@ export * from './modal';
 export * from './button';
 export * from './input';
 export * from './form-error';
+export * from './custom-calendar';

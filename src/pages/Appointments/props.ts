@@ -1,3 +1,4 @@
+import { CalendarEvent } from '../../api/models/appointments/calendar-event';
 import { momentLocalizer } from 'react-big-calendar';
 import moment from 'moment';
 
@@ -7,12 +8,11 @@ import moment from 'moment';
 export const useAppointmentsPage = () => {
   const localizer = momentLocalizer(moment);
 
-  const events = [
+  const events: CalendarEvent[] = [
     {
       title: 'Asadbek',
       start: moment().toDate(),
-      end: moment().add('2', 'hours').toDate(),
-      resource: 'sssssss'
+      end: moment().add('2', 'hours').toDate()
     },
     {
       title: 'Jafarbek',
