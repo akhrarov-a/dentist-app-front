@@ -1,4 +1,4 @@
-import { CalendarEvent } from '../../../api/models/appointments/calendar-event';
+import { CalendarEvent } from '@api';
 
 /**
  * Custom Calendar Props
