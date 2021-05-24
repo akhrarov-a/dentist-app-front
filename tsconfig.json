@@ -22,7 +22,40 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
+    "baseUrl": ".",
+    "paths": {
+      "@api": [
+        "./src/api/index"
+      ],
+      "@api/*": [
+        "./src/api/*"
+      ],
+      "@store": [
+        "./src/store/index"
+      ],
+      "@store/*": [
+        "./src/store/*"
+      ],
+      "@core": [
+        "./src/core/index"
+      ],
+      "@core/*": [
+        "./src/core/*"
+      ],
+      "@app": [
+        "./src/modules/app/index"
+      ],
+      "@app/*": [
+        "./src/modules/app/*"
+      ],
+      "@auth": [
+        "./src/modules/auth/index"
+      ],
+      "@auth/*": [
+        "./src/modules/auth/*"
+      ]
+    }
   },
   "include": [
     "src"
