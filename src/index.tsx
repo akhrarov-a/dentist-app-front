@@ -1,10 +1,10 @@
 import './styles/index.scss';
+import { App } from '@app';
 import { Provider } from 'react-redux';
-import App from './app';
+import { store } from '@store';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import reportWebVitals from './reportWebVitals';
-import store from './redux/store';
 
 /**
  * Renders App

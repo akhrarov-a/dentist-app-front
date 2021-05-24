@@ -1,0 +1,115 @@
+@import 'src/styles/variables';
+
+.container {
+  height: fit-content;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  margin-top: 60px;
+  margin-bottom: 10px;
+  background-color: $light-theme-dark-blue;
+  border-radius: 4px;
+  color: $white;
+}
+
+.title {
+  padding: 0;
+  margin: 0;
+  margin-top: -5px;
+  font-size: 25px;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.right {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.add {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  cursor: pointer;
+  margin-left: 20px;
+
+  .icon {
+    font-size: 30px
+  }
+
+  &:hover {
+    color: $white-hover;
+
+    .tooltip {
+      visibility: visible;
+    }
+  }
+}
+
+.delete {
+  @extend .add;
+
+  .icon {
+    font-size: 22px;
+  }
+}
+
+.tooltip {
+  position: absolute;
+  width: 90px;
+  z-index: 1;
+  visibility: hidden;
+  font-size: 12px;
+  color: #fff;
+  text-align: center;
+  padding: 10px;
+  border-radius: 6px;
+
+  &:after {
+    content: " ";
+    position: absolute;
+    top: 100%; /* At the bottom of the tooltip */
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+  }
+
+  &--add {
+    top: -45px;
+    left: -41px;
+    background-color: $light-theme-dark-blue-hover;
+
+    &:after {
+      border-color: $light-theme-dark-blue-hover transparent transparent transparent;
+    }
+  }
+
+  &--delete {
+    top: -50px;
+    left: -44px;
+    background-color: $red;
+
+    &:after {
+      border-color: $red transparent transparent transparent;
+    }
+  }
+}
+
+.search {
+  width: 400px;
+  height: fit-content;
+  margin-right: 30px;
+
+  input {
+    width: 100%;
+    height: 40px;
+    padding: 0 10px;
+    font-size: 16px;
+    border-radius: 4px;
+  }
+}

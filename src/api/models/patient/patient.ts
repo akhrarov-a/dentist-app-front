@@ -1,7 +1,7 @@
 /**
  * Patient type
  */
-export type Patient = {
+type Patient = {
   id: number;
   name: string;
   phoneNumber: string;
@@ -10,14 +10,4 @@ export type Patient = {
   userId: number;
 };
 
-/**
- * Add or Update patient
- */
-export type AddOrUpdatePatient = {
-  id?: number;
-  name: string;
-  phoneNumber: string;
-  email?: string;
-  description: string;
-  userId?: number;
-};
+export type { Patient };

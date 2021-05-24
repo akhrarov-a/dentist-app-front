@@ -1,63 +1,7 @@
 {
-  "compilerOptions": {
-    "experimentalDecorators": true,
-    "target": "es5",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
-    "typeRoots": [
-      "node_modules/@types"
-    ],
-    "allowJs": true,
-    "skipLibCheck": true,
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "strict": true,
-    "forceConsistentCasingInFileNames": true,
-    "noFallthroughCasesInSwitch": true,
-    "module": "esnext",
-    "moduleResolution": "node",
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "noEmit": true,
-    "jsx": "react-jsx",
-    "baseUrl": ".",
-    "paths": {
-      "@api": [
-        "./src/api/index"
-      ],
-      "@api/*": [
-        "./src/api/*"
-      ],
-      "@store": [
-        "./src/store/index"
-      ],
-      "@store/*": [
-        "./src/store/*"
-      ],
-      "@core": [
-        "./src/core/index"
-      ],
-      "@core/*": [
-        "./src/core/*"
-      ],
-      "@app": [
-        "./src/modules/app/index"
-      ],
-      "@app/*": [
-        "./src/modules/app/*"
-      ],
-      "@auth": [
-        "./src/modules/auth/index"
-      ],
-      "@auth/*": [
-        "./src/modules/auth/*"
-      ]
-    }
-  },
+  "extends": "./tsconfig.paths.json",
   "include": [
     "src"
-  ]
+  ],
+  "compilerOptions": {}
 }

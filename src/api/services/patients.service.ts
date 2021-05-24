@@ -1,5 +1,5 @@
-import { AddOrUpdatePatient } from '../models/patient/patient';
-import { apiBaseUrl } from '../../utils/constants';
+import { AddOrUpdatePatient } from '@api';
+import { apiBaseUrl } from '@core';
 import axios from 'axios';
 
 /**
@@ -106,4 +106,4 @@ class PatientsService {
     });
 }
 
-export default PatientsService;
+export { PatientsService };

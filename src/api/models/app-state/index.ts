@@ -1,10 +1,12 @@
-import AuthReducerState from '../reducer-states/auth.state';
-import PatientsReducerState from '../reducer-states/patients.state';
+import { AuthReducerState } from '@auth/store/state';
+import { PatientsReducerState } from '@dentist/pages/patients/store/state';
 
 /**
  * App State Type
  */
-export type AppState = {
+type AppState = {
   auth: AuthReducerState;
   patients: PatientsReducerState;
 };
+
+export type { AppState };

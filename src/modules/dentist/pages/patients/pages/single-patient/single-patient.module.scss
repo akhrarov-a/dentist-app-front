@@ -1,0 +1,226 @@
+@import "src/styles/variables";
+
+.container {
+}
+
+.navbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 22px 30px;
+  margin-top: 60px;
+  margin-bottom: 10px;
+  background-color: $light-theme-dark-blue;
+  border-radius: 4px;
+  color: $white;
+}
+
+.link {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  color: $white;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  transition: color $transition-fast;
+
+  .icon {
+    font-size: 24px;
+    margin-right: 10px;
+    margin-bottom: -2px;
+  }
+
+  p {
+    padding: 0;
+    margin: 0;
+    font-size: 20px;
+  }
+
+  &:hover {
+    color: $white-hover
+  }
+}
+
+.action-container {
+  display: flex;
+
+  p {
+    position: relative;
+    cursor: pointer;
+    padding: 0;
+    margin: 0;
+    margin-right: 40px;
+    font-size: 25px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    transition: color $transition-fast;
+
+    &:last-of-type {
+      margin-right: 0;
+    }
+
+    &:hover {
+      color: $white-hover;
+
+      .tooltip {
+        visibility: visible;
+      }
+    }
+  }
+}
+
+.tooltip {
+  position: absolute;
+  z-index: 1;
+  visibility: hidden;
+  top: -45px;
+  font-size: 12px;
+  color: #fff;
+  text-align: center;
+  padding: 10px;
+  border-radius: 6px;
+
+  &:after {
+    content: " ";
+    position: absolute;
+    top: 100%; /* At the bottom of the tooltip */
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+  }
+
+  &--edit {
+    left: -10px;
+    background-color: $light-theme-dark-blue-hover;
+
+    &:after {
+      border-color: $light-theme-dark-blue-hover transparent transparent transparent;
+    }
+  }
+
+  &--delete {
+    left: -18px;
+    background-color: $red;
+
+    &:after {
+      border-color: $red transparent transparent transparent;
+    }
+  }
+}
+
+.links {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  .nav-link {
+    padding: 10px 0;
+    color: #000;
+    font-size: 20px;
+    font-weight: 600;
+    text-decoration: none;
+    text-align: center;
+    border-bottom: 2px solid $white;
+    transition: color $transition-fast;
+
+    &:last-of-type {
+      margin-left: 60px;
+    }
+
+    &:hover {
+      color: $black-hover;
+    }
+  }
+}
+
+.active {
+  color: $light-theme-dark-blue;
+}
+
+.active-border {
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  height: 2px;
+  background-color: $light-theme-dark-blue;
+}
+
+.title {
+  padding: 0;
+  margin: 0;
+  margin-right: 30px;
+  font-size: 30px;
+  font-weight: 400;
+}
+
+.avatar {
+  background-color: $light-theme-dark-blue;
+  width: 40px;
+  height: 40px;
+  border-radius: 30px;
+}
+
+.content {
+  background-color: $white;
+  border-radius: 4px;
+}
+
+.user-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  padding-left: 40px;
+  border-bottom: 1px solid $light-theme-light-grey;
+}
+
+.user {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-right: 40px;
+}
+
+.delete-modal {
+  width: 400px;
+  height: 210px;
+  padding-top: 30px;
+
+  h1 {
+    font-size: 25px;
+    font-weight: 700;
+    text-align: center;
+  }
+
+  h3 {
+    margin-top: -8px;
+    font-size: 16px;
+    font-weight: 500;
+    text-align: center;
+  }
+}
+
+.buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40px;
+
+  button {
+    &:first-of-type {
+      margin-right: 10px;
+    }
+
+    &:last-of-type {
+      margin-left: 10px;
+    }
+  }
+}

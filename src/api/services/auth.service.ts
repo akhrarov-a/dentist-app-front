@@ -1,5 +1,5 @@
-import { LogIn } from '../models/log-in/log-in';
-import { apiBaseUrl } from '../../utils/constants';
+import { LogIn } from '@api';
+import { apiBaseUrl } from '@core';
 import axios from 'axios';
 
 /**
@@ -44,4 +44,4 @@ class AuthService {
     });
 }
 
-export default AuthService;
+export { AuthService };

@@ -1,7 +1,7 @@
 /**
  * User Data Schema
  */
-export type User = {
+type User = {
   id: number;
   username: string;
   phoneNumber: string;
@@ -10,3 +10,14 @@ export type User = {
   email: string;
   avatar: string;
 };
+
+/**
+ * User role
+ */
+enum UserRole {
+  ADMIN = 'admin',
+  DENTIST = 'dentist'
+}
+
+export type { User };
+export { UserRole };
