@@ -13,12 +13,3 @@
 
 ### -- redux-chill - very comfortable and well-organized library for easily creating your redux store(actions, reducers, sagas) structure. It has one key feature that I haven't meet before anywhere, that it has storeContext and it is really conveniently
 ### -- more practiced with react hooks
-
-
-## App Link in Heroku Platform
-
-### -- https://stomatolog-uz.herokuapp.com
-
-#### -- Test user credentials
-##### -- login - test
-##### -- password - Test123456
