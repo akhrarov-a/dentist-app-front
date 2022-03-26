@@ -8,8 +8,3 @@
 ### -- this helps with that easily selecting from patient list patient and appoint time for procedure
 
 #### -- so far this is a basic functionality, in the future new functionalities will be developed for the convenience of the dentist  
-
-## - New technologies that I worked with
-
-### -- redux-chill - very comfortable and well-organized library for easily creating your redux store(actions, reducers, sagas) structure. It has one key feature that I haven't meet before anywhere, that it has storeContext and it is really conveniently
-### -- more practiced with react hooks
